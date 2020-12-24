@@ -15,7 +15,6 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  console.log('data', items);
   items.edges.forEach(item => {
     createPage({
       path: `/products/${item.node.slug}`,
