@@ -7,8 +7,8 @@ import { SEO, Layout,
 import {useProductsContext} from '../context/products_context'
 
 const ProductsPage = () => {
-  const {all_items} = useProductsContext();
-  console.log('allItems', all_items);
+  const {all_items, featured_items, onSale_items} = useProductsContext();
+  console.log('allItems', all_items, featured_items, onSale_items);
   return (
     <Layout>
       <SEO title="Shop Jewelry"/>
