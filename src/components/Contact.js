@@ -1,28 +1,54 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
 const Contact = () => {
-
   return (
     <Wrapper>
       <div className="section-center">
         <h3>Hilary wants to hear from you!</h3>
         <div className="content">
-          <p>Please fill out our form and Hilary will get back to you as soon as she can. Thank you!</p>
+          <p>
+            Please fill out our form and Hilary will get back to you as soon as
+            she can. Thank you!
+          </p>
           <form
+            method="post"
+            netlify-honeypot="bot-field"
+            data-netlify="true"
+            name="contact"
             className="contact-form"
-              method="post"
-              netlify-honeypot="bot-field"
-              data-netlify="true"
-              name="contact"
-              action="/success"
-            >
+            action="/success"
+          >
             <input type="hidden" name="bot-field" />
             <input type="hidden" name="form-name" value="contact" />
-            <input type="text" className="form-input" placeholder="Your Name" required/>
-            <input type="email" className="form-input" placeholder="Your Email" required/>
-            <input type="tel" className="form-input" placeholder="Your Phone" />
-            <button type="submit" className="submit-btn">send</button>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              className="form-input"
+              placeholder="Your Name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="form-input"
+              placeholder="Your Email"
+              required
+            />
+            <input type="tel" name="phone" id="phone" className="form-input" placeholder="Your Phone" />
+            <textarea
+                name="message"
+                id="message"
+                rows="7"
+                className="form-input"
+                placeholder="Hello there..."
+                required
+              />
+            <button type="submit" className="submit-btn">
+              send
+            </button>
           </form>
         </div>
       </div>
@@ -96,4 +122,4 @@ const Wrapper = styled.section`
   }
 `
 
-export default Contact;
+export default Contact
