@@ -3,24 +3,25 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { graphql } from "gatsby"
 import Image from "gatsby-image"
-import { Layout } from "../components"
+import { SEO, Layout } from "../components"
 
 const Product = ({ data }) => {
   return (
     <Layout>
-      <main>
-        <Wrapper className="page section section-center">
-          <Image fluid={data.item.image.fluid} alt="" type="media" />
+      <SEO title={`${data.item.name}`}/>
+        <Wrapper className="page section product-center">
           <article itemScope itemType="https://schema.org/Product">
             <div className="title">
-            <h2 itemProp="name">{data.item.name}</h2>
+            <h4 itemProp="name">{data.item.name}</h4>
               <div className="underline"></div>
             </div>
-            <p>{data.item.description.description} </p>
-            <p>${data.item.price}</p>
+            <div>
+              <Image fluid={data.item.image.fluid} alt="" type="media" />
+            </div>
+            <p className="info">{data.item.description.description} </p>
+            <p className="price">${data.item.price}</p>
           </article>
         </Wrapper>
-      </main>
     </Layout>
   )
 }
@@ -45,32 +46,37 @@ export const query = graphql`
     }
   }
 `
-
-const Wrapper = styled.section`
-  display: grid;
-  gap: 4rem;
-  img {
-    width: 100%;
-    display: block;
-    border-radius: var(--radius);
-    height: 500px;
-    object-fit: cover;
+const Wrapper = styled.main`
+  .product-center {
+    display: grid;
+    gap: 4rem;
+    margin-top: 2rem;
   }
-  p {
+  .price {
+    color: var(--clr-primary-5);
+  }
+  .desc {
     line-height: 2;
     max-width: 45em;
-    margin: 0 auto;
-    margin-top: 2rem;
-    color: var(--clr-grey-5);
   }
-  .title {
-    text-align: left;
+  .info {
+    text-transform: capitalize;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 125px 1fr;
+    span {
+      font-weight: 700;
+    }
   }
-  .underline {
-    margin-left: 0;
-  }
+
   @media (min-width: 992px) {
-    grid-template-columns: 1fr 1fr;
+    .product-center {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+    .price {
+      font-size: 1.25rem;
+    }
   }
 `
 export default Product

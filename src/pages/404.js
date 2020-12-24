@@ -1,11 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import {Layout} from "../components"
+import {SEO, Layout} from "../components"
 
 const ErrorPage = () => {
   return (
     <Layout>
+      <SEO title="Oops"/>
       <Wrapper className="page-100">
         <section>
           <h1>Oops!</h1>

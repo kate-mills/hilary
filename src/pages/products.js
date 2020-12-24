@@ -1,12 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import { Layout, 
+import { SEO, Layout, 
   //Filters, ProductList, Sort, PageHero
 } from "../components"
 
 const ProductsPage = () => {
   return (
     <Layout>
+      <SEO title="Shop Jewelry"/>
       <Wrapper>
         <h4>products page</h4>
       </Wrapper>
