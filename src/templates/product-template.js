@@ -6,9 +6,6 @@ import Image from "gatsby-image"
 import { Layout } from "../components"
 
 const Product = ({ data }) => {
-  console.log("****item", data)
-  console.log("****item", data.item)
-  console.log("****item", data.item.name)
   return (
     <Layout>
       <main>
@@ -41,7 +38,7 @@ export const query = graphql`
       onSale
       stockQuantity
       image {
-        fluid(maxHeight: 300) {
+        fluid {
           ...GatsbyContentfulFluid
         }
       }

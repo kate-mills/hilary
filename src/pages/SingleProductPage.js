@@ -4,6 +4,7 @@ import { useProductsContext } from "../context/products_context"
 import { single_product_url as url } from "../utils/constants"
 import { formatPrice } from "../utils/helpers"
 import {
+  Layout,
   Loading,
   Error,
   ProductImages,
@@ -13,7 +14,6 @@ import {
 } from "../components"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import Layout from "../components"
 
 const SingleProductPage = () => {
   return (
