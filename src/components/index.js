@@ -16,7 +16,7 @@ import Sort from './Sort'
 import Stars from './Stars'
 import CartContent from './CarContent'
 import PageHero from './PageHero'
-import Layout from './Layout'
+import Layout from './layout'
 
 export {
   Layout,
