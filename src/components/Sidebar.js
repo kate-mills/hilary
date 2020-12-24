@@ -23,7 +23,7 @@ const Sidebar = ({handleClick}) => {
               <li key={link.id}> <Link to={link.url} onClick={closeSidebar}>{link.text}</Link></li>
             )
           })}
-          <li><Link to="/checkout">checkout</Link></li>
+          <li><Link to="/checkout" onClick={closeSidebar} >checkout</Link></li>
         </ul>
         <CartButtons/>
       </aside>
