@@ -4,7 +4,11 @@ import { SEO, Layout,
   //Filters, ProductList, Sort, PageHero
 } from "../components"
 
+import {useProductsContext} from '../context/products_context'
+
 const ProductsPage = () => {
+  const {all_items} = useProductsContext();
+  console.log('allItems', all_items);
   return (
     <Layout>
       <SEO title="Shop Jewelry"/>

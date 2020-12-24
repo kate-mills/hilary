@@ -1,4 +1,4 @@
-import axios from 'axios'
+import {graphql, useStaticQuery} from 'gatsby'
 import React, { useContext, useEffect, useReducer } from 'react'
 import reducer from '../reducers/products_reducer'
 import { products_url as url } from '../utils/constants'
@@ -13,13 +13,49 @@ import {
   GET_SINGLE_PRODUCT_ERROR,
 } from '../actions'
 
+
+const query = graphql`
+  {
+    allContentfulHilaryJewelry {
+      edges {
+        node {
+          name
+          stockQuantity
+          slug
+          id
+          description {
+            description
+          }
+          image {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+          price
+          colors
+          category
+          featured
+          onSale
+        }
+      }
+    }
+  }
+`
+
 const initialState = {
   isSidebarOpen: false,
+  products_loading: false,
+  products_error: false,
+  all_items: [],
+  featured_items: [],
+  sale_items: [],
 }
 
 const ProductsContext = React.createContext()
 
 export const ProductsProvider = ({ children }) => {
+  const { allContentfulHilaryJewelry } = useStaticQuery(query);
+
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const openSidebar = ()=>{
@@ -31,7 +67,12 @@ export const ProductsProvider = ({ children }) => {
 
 
   return (
-    <ProductsContext.Provider value={{...state, openSidebar, closeSidebar}}>
+    <ProductsContext.Provider value={{
+      ...state,
+      openSidebar,
+      closeSidebar,
+      all_items: allContentfulHilaryJewelry,
+      }}>
       {children}
     </ProductsContext.Provider>
   )
