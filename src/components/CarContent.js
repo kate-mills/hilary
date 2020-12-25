@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useCartContext } from '../context/cart_context'
-import { Link } from 'gatsby'
-import CartColumns from './CartColumns'
-import CartItem from './CartItem'
-import CartTotals from './CartTotals'
+//import { useCartContext } from '../context/cart_context'
+//import { Link } from 'gatsby'
+//import CartColumns from './CartColumns'
+//import CartItem from './CartItem'
+//import CartTotals from './CartTotals'
 
 const CartContent = () => {
-  return <h4>cart content </h4>
+  return (
+    <Wrapper>
+      <h4>cart content </h4>
+    </Wrapper>
+  )
 }
 const Wrapper = styled.section`
   .link-container {

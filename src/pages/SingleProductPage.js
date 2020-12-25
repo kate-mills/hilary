@@ -1,24 +1,20 @@
-import React, { useEffect } from 'react'
-import { useLocation } from '@reach/router'
-import { useProductsContext } from '../context/products_context'
-import { single_product_url as url } from '../utils/constants'
-import { formatPrice } from '../utils/helpers'
-import {
-  Layout,
-  Loading,
-  Error,
-  ProductImages,
-  AddToCart,
-  Stars,
-  PageHero,
+import React from 'react'
+//import { useLocation } from '@reach/router'
+//import { useProductsContext } from '../context/products_context'
+//import { single_product_url as url } from '../utils/constants'
+//import { formatPrice } from '../utils/helpers'
+import { Layout,
+  //Loading, Error, ProductImages, AddToCart, Stars, PageHero,
 } from '../components'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+//import { Link } from 'gatsby'
 
 const SingleProductPage = () => {
   return (
     <Layout>
-      <h4>single product page</h4>
+      <Wrapper>
+        <h4>single product page</h4>
+      </Wrapper>
     </Layout>
   )
 }

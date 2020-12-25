@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FaPlus, FaMinus } from 'react-icons/fa'
+//import { FaPlus, FaMinus } from 'react-icons/fa'
 
 const AmountButtons = () => {
-  return <h4>amount buttons </h4>
+  return (
+    <Wrapper>
+      <h4>amount buttons</h4>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`

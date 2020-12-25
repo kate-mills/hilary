@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
-import { FaCheck } from 'react-icons/fa'
-import { useCartContext } from '../context/cart_context'
-import AmountButtons from './AmountButtons'
+//import { Link } from 'gatsby'
+//import { FaCheck } from 'react-icons/fa'
+//import { useCartContext } from '../context/cart_context'
+//import AmountButtons from './AmountButtons'
 
 const AddToCart = () => {
-  return <h4>addToCart </h4>
+  return (
+    <Wrapper>
+      <h4>add to cart</h4>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`

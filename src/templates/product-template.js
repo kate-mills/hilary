@@ -2,25 +2,46 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
-import { SEO, Layout } from '../components'
+import { formatPrice } from '../utils/helpers'
+
+import { SEO, Layout, ProductImages, AddToCart, Stars, PageHero } from '../components'
 
 const Product = ({ data }) => {
+  const {
+    description: { description },
+    image,
+    name,
+    onSale,
+    price,
+    stockQuantity,
+  } = data.item
   return (
     <Layout>
-      <SEO title={`${data.item.name}`} />
+      <SEO title={`${name}`} />
       <Wrapper className="page section product-center">
-        <article itemScope itemType="https://schema.org/Product">
-          <div className="title">
-            <h4 itemProp="name">{data.item.name}</h4>
-            <div className="underline"></div>
-          </div>
-          <div>
-            <Image fluid={data.item.image.fluid} alt="" type="media" />
-          </div>
-          <p className="info">{data.item.description.description} </p>
-          <p className="price">${data.item.price}</p>
-        </article>
+        <PageHero title={name} product/>
+        <div className='section section-center page'>
+          <Link to='/products' className='btn'>back to products</Link>
+
+        <div className="product-center">
+          {/* Images here */}
+          <ProductImages images={image}/>
+          <section className='content' itemScope itemType="https://schema.org/Product">
+            <h2>{name}</h2>
+            <Stars/>
+            <h5 className='price'>{formatPrice(price)}</h5>
+            <p className='desc'>{description}</p>
+
+            <p className='info'>
+              {stockQuantity < 2 ? <span className="red">Rare - only 1 left!</span>: <span>Currently In stock!</span> }
+            </p>
+            <p className='info'>
+              {onSale && <span className="red">On Sale!</span> }
+            </p>
+            {stockQuantity > 0 && <AddToCart/>}
+          </section>
+        </div>
+        </div>
       </Wrapper>
     </Layout>
   )
@@ -29,25 +50,22 @@ const Product = ({ data }) => {
 export const query = graphql`
   query($slug: String) {
     item: contentfulHilaryJewelry(slug: { eq: $slug }) {
-      name
-      slug
-      description {
-        description
-      }
-      price
       category
+      colors
+      description { description }
       featured
+      id
+      image { fluid { ...GatsbyContentfulFluid } }
+      name
       onSale
+      price
+      slug
       stockQuantity
-      image {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
-      }
     }
   }
 `
 const Wrapper = styled.main`
+  .red { color: var(--clr-red-dark); }
   .product-center {
     display: grid;
     gap: 4rem;
@@ -62,9 +80,9 @@ const Wrapper = styled.main`
   }
   .info {
     text-transform: capitalize;
-    width: 300px;
+    width: 500px;
     display: grid;
-    grid-template-columns: 125px 1fr;
+    grid-template-columns: 135px 1fr;
     span {
       font-weight: 700;
     }

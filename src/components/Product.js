@@ -7,17 +7,11 @@ import Image from 'gatsby-image'
 
 const Product = (props) => {
   const {
-    category,
-    colors,
     description:{ description },
-    featured,
-    id,
     image,
     name,
-    onSale,
     price,
     slug,
-    stockQuantity,
   } = props
   return (
     <Wrapper>

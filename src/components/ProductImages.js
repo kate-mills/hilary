@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, {
+  //useState
+  } from 'react'
 import styled from 'styled-components'
 
 const ProductImages = () => {
-  return <h4>product images</h4>
+  return (
+    <Wrapper>
+      <h4>product images</h4>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`
