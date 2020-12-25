@@ -31,11 +31,11 @@ const Product = ({ data }) => {
             <Stars/>
             <h5 className='price'>{formatPrice(price)}</h5>
             <p className='desc'>{description}</p>
-
-            { stockQuantity < 2 ?
-                <p className='info'> <span className="red">Rare - only 1 left!</span></p>:
-                null
-            }
+            { stockQuantity < 2 && (
+              <p className='info'>
+                <span className="red">Rare - only 1 left!</span>
+              </p>
+            )}
             { onSale && (
               <p className='info'>
                 <span className="red">On Sale!</span>
