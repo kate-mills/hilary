@@ -11,10 +11,12 @@ const HomePage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Hero />
-      <FeaturedProducts />
-      <Services />
-      <Contact />
+      <main>
+        <Hero />
+        <FeaturedProducts />
+        <Services />
+        <Contact />
+      </main>
     </Layout>
   )
 }

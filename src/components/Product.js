@@ -3,9 +3,37 @@ import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import { FaSearch } from 'react-icons/fa'
 import { Link } from 'gatsby'
+import Image from 'gatsby-image'
 
-const Product = () => {
-  return <h4>product</h4>
+const Product = (props) => {
+  const {
+    category,
+    colors,
+    description:{ description },
+    featured,
+    id,
+    image,
+    name,
+    onSale,
+    price,
+    slug,
+    stockQuantity,
+  } = props
+  return (
+    <Wrapper>
+      <div className="container">
+        <Link to={`/products/${slug}`}>
+          <Image fluid={image.fluid} alt={description}/>
+        </Link>
+        <Link to={`/products/${slug}`} className="link"><FaSearch/></Link>
+      </div>
+      <footer>
+        <h5>{name}</h5>
+        {/* Reminder: Use cents for safer calculations */}
+        <p>{formatPrice(price)}</p>
+      </footer>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.article`

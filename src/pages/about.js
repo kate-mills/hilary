@@ -32,7 +32,7 @@ const AboutPage = () => {
           <article>
             <div className="title">
               <h2>About Hilary's Designs</h2>
-              <div className="underline"></div>
+              <div className="underline"/>
             </div>
             <p>
               Hand cut designs made with love and natural elements by yours
