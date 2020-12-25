@@ -1,15 +1,33 @@
-import React, {
-  //useState
-  } from 'react'
+import React, {useState } from 'react'
 import styled from 'styled-components'
+import Image from 'gatsby-image'
 
-const ProductImages = () => {
+const ProductImages = ({images=[],  description}) => {
+  const [main, setMain ] = useState(images[0])
   return (
     <Wrapper>
-      <h4>product images</h4>
+      <Image
+        fluid={main.fluid}
+        alt={description || ""} className="main"
+      />
+      <div className="gallery">
+        {images.map((img, index)=>{
+          return(
+            <img
+              key={index}
+              onClick={()=> setMain(images[index])}
+              src={img.fluid.src}
+              alt={`View ${index} of ${description}`}
+              className={`${img.fluid.src===main.fluid.src ? 'active': null}`}
+            />
+          )  
+       })}
+      </div>
     </Wrapper>
   )
 }
+
+const WrapImage = styled(Image)``
 
 const Wrapper = styled.section`
   .main {
@@ -19,7 +37,7 @@ const Wrapper = styled.section`
     width: 100%;
     display: block;
     border-radius: var(--radius);
-    object-fit: cover;
+    object-fit: contain !important;
   }
   .gallery {
     margin-top: 1rem;
@@ -29,6 +47,7 @@ const Wrapper = styled.section`
     img {
       height: 100px;
       cursor: pointer;
+      object-fit: cover !important;
     }
   }
   .active {
@@ -41,6 +60,7 @@ const Wrapper = styled.section`
     .gallery {
       img {
         height: 50px;
+        object-fit: cover !important;
       }
     }
   }
@@ -51,6 +71,7 @@ const Wrapper = styled.section`
     .gallery {
       img {
         height: 75px;
+        object-fit: cover !important;
       }
     }
   }

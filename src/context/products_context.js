@@ -25,7 +25,7 @@ const query = graphql`
           description {
             description
           }
-          image {
+          images {
             fluid {
               ...GatsbyContentfulFluid
             }
@@ -50,7 +50,7 @@ const query = graphql`
           description {
             description
           }
-          image {
+          images {
             fluid {
               ...GatsbyContentfulFluid
             }
@@ -73,7 +73,7 @@ const query = graphql`
           description {
             description
           }
-          image {
+          images {
             fluid {
               ...GatsbyContentfulFluid
             }

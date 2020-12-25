@@ -8,7 +8,7 @@ import Image from 'gatsby-image'
 const Product = (props) => {
   const {
     description:{ description },
-    image,
+    images,
     name,
     price,
     slug,
@@ -17,7 +17,7 @@ const Product = (props) => {
     <Wrapper>
       <div className="container">
         <Link to={`/products/${slug}`}>
-          <Image fluid={image.fluid} alt={description}/>
+          <Image fluid={images[0].fluid} alt={description}/>
         </Link>
         <Link to={`/products/${slug}`} className="link"><FaSearch/></Link>
       </div>

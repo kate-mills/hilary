@@ -4,12 +4,19 @@ import { Link } from 'gatsby'
 import { graphql } from 'gatsby'
 import { formatPrice } from '../utils/helpers'
 
-import { SEO, Layout, ProductImages, AddToCart, Stars, PageHero } from '../components'
+import {
+  SEO,
+  Layout,
+  ProductImages,
+  AddToCart,
+  Stars,
+  PageHero,
+} from '../components'
 
 const Product = ({ data }) => {
   const {
     description: { description },
-    image,
+    images,
     name,
     onSale,
     price,
@@ -17,34 +24,38 @@ const Product = ({ data }) => {
   } = data.item
   return (
     <Layout>
-      <SEO title={`${name}`} />
+      <SEO title={name} description={description} />
       <Wrapper className="page section product-center">
-        <PageHero title={name} product/>
-        <div className='section section-center page'>
-          <Link to='/products' className='btn'>back to products</Link>
-
-        <div className="product-center">
-          {/* Images here */}
-          <ProductImages images={image}/>
-          <section className='content' itemScope itemType="https://schema.org/Product">
-            <h2>{name}</h2>
-            <Stars/>
-            <h5 className='price'>{formatPrice(price)}</h5>
-            <p className='desc'>{description}</p>
-            { stockQuantity < 2 && (
-              <p className='info'>
-                <span className="red">Rare - only 1 left!</span>
-              </p>
-            )}
-            { onSale && (
-              <p className='info'>
-                <span className="red">On Sale!</span>
-              </p>
-            )}
-            <hr/>
-            {stockQuantity > 0 && <AddToCart/>}
-          </section>
-        </div>
+        <PageHero title={name} product />
+        <div className="section section-center page">
+          <Link to="/products" className="btn">
+            back to products
+          </Link>
+          <div className="product-center">
+            <ProductImages images={images} description={description} />
+            <section
+              className="content"
+              itemScope
+              itemType="https://schema.org/Product"
+            >
+              <h2>{name}</h2>
+              <Stars />
+              <h5 className="price">{formatPrice(price)}</h5>
+              <p className="desc">{description}</p>
+              {stockQuantity < 2 && (
+                <p className="info">
+                  <span className="red">Rare - only 1 left!</span>
+                </p>
+              )}
+              {onSale && (
+                <p className="info">
+                  <span className="red">On Sale!</span>
+                </p>
+              )}
+              <hr />
+              {stockQuantity > 0 && <AddToCart />}
+            </section>
+          </div>
         </div>
       </Wrapper>
     </Layout>
@@ -56,10 +67,16 @@ export const query = graphql`
     item: contentfulHilaryJewelry(slug: { eq: $slug }) {
       category
       colors
-      description { description }
+      description {
+        description
+      }
       featured
       id
-      image { fluid { ...GatsbyContentfulFluid } }
+      images {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
       name
       onSale
       price
@@ -69,18 +86,25 @@ export const query = graphql`
   }
 `
 const Wrapper = styled.main`
-  .red { color: var(--clr-red-dark); }
+  .red {
+    color: var(--clr-red-dark);
+  }
   .product-center {
     display: grid;
     gap: 4rem;
     margin-top: 2rem;
+    > section {
+      > h2 {
+        max-width: 24rem;
+      }
+    }
   }
   .price {
     color: var(--clr-primary-5);
   }
   .desc {
     line-height: 2;
-    max-width: 45em;
+    max-width: 25em;
   }
   .info {
     text-transform: capitalize;
