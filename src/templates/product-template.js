@@ -20,6 +20,8 @@ const Product = ({ data }) => {
     name,
     onSale,
     price,
+    reviewCount,
+    stars,
     stockQuantity,
   } = data.item
   return (
@@ -39,7 +41,7 @@ const Product = ({ data }) => {
               itemType="https://schema.org/Product"
             >
               <h2>{name}</h2>
-              <Stars />
+              <Stars stars={stars} reviewCount={reviewCount}/>
               <h5 className="price">{formatPrice(price)}</h5>
               <p className="desc">{description}</p>
               {stockQuantity < 2 && (
@@ -80,6 +82,8 @@ export const query = graphql`
       name
       onSale
       price
+      reviewCount
+      stars
       slug
       stockQuantity
     }
@@ -87,7 +91,7 @@ export const query = graphql`
 `
 const Wrapper = styled.main`
   .red {
-    color: var(--clr-red-dark);
+    color: var(--clr-primary-4);
   }
   .product-center {
     display: grid;

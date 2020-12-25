@@ -19,6 +19,8 @@ const query = graphql`
       edges {
         node {
           name
+          reviewCount
+          stars
           stockQuantity
           slug
           id
@@ -44,6 +46,8 @@ const query = graphql`
       edges {
         node {
           name
+          reviewCount
+          stars
           stockQuantity
           slug
           id
@@ -67,6 +71,8 @@ const query = graphql`
       edges {
         node {
           name
+          reviewCount
+          stars
           stockQuantity
           slug
           id
