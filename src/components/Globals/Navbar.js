@@ -1,13 +1,13 @@
-import React from "react"
-import styled from "styled-components"
-import logo from "../../images/handw.svg"
-import { FaBars } from "react-icons/fa"
-import { Link } from "gatsby"
-import { links } from "../../utils/constants"
-import CartButtons from "./CartButtons"
-import { useProductsContext } from "../../context/products_context"
-import { useUserContext } from "../../context/user_context"
-import { GiPrayerBeads } from "react-icons/gi"
+import React from 'react'
+import styled from 'styled-components'
+import logo from '../../images/handw.svg'
+import { FaBars } from 'react-icons/fa'
+import { Link } from 'gatsby'
+import { links } from '../../utils/constants'
+import CartButtons from './CartButtons'
+import { useProductsContext } from '../../context/products_context'
+import { useUserContext } from '../../context/user_context'
+import { GiPrayerBeads } from 'react-icons/gi'
 
 const Nav = () => {
   const { openSidebar } = useProductsContext()

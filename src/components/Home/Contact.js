@@ -1,5 +1,5 @@
-import React from "react";
-import Title from "../Globals/Title";
+import React from 'react'
+import Title from '../Globals/Title'
 
 export default function Contact() {
   return (
@@ -7,10 +7,7 @@ export default function Contact() {
       <Title title="contact Hilary" />
       <div className="row">
         <div className="col-10 col-sm-8 col-md-6 mx-auto">
-          <form
-            action=""
-            method="POST"
-          >
+          <form action="" method="POST">
             {/* name */}
             <div className="form-group">
               <label htmlFor="name">Name</label>
@@ -55,6 +52,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  );
+  )
 }
-

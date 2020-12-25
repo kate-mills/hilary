@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import Title from "../Globals/Title"
-import Img from "gatsby-image"
+import React, { Component } from 'react'
+import Title from '../Globals/Title'
+import Img from 'gatsby-image'
 
 const getCategories = items => {
   let tempItems = items.map(items => {
@@ -8,7 +8,7 @@ const getCategories = items => {
   })
   let tempCategories = new Set(tempItems)
   let categories = Array.from(tempCategories)
-  categories = ["all", ...categories]
+  categories = ['all', ...categories]
   return categories
 }
 export default class Menu extends Component {
@@ -22,7 +22,7 @@ export default class Menu extends Component {
   }
   handleItems = category => {
     let tempItems = [...this.state.items]
-    if (category === "all") {
+    if (category === 'all') {
       this.setState(() => {
         return { coffeeItems: tempItems }
       })

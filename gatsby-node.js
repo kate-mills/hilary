@@ -1,9 +1,11 @@
-const path = require("path")
+const path = require('path')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const {data: {items}} = await graphql(`
+  const {
+    data: { items },
+  } = await graphql(`
     query {
       items: allContentfulHilaryJewelry {
         edges {

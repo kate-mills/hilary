@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Redirect, useLocation } from "@reach/router"
+import { Route, Redirect, useLocation } from '@reach/router'
 import { useUserContext } from '../context/user_context'
 
 const PrivateRoute = () => {

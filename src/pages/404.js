@@ -1,12 +1,12 @@
-import React from "react"
-import styled from "styled-components"
-import { Link } from "gatsby"
-import {SEO, Layout} from "../components"
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import { SEO, Layout } from '../components'
 
 const ErrorPage = () => {
   return (
     <Layout>
-      <SEO title="Oops"/>
+      <SEO title="Oops" />
       <Wrapper className="page-100">
         <section>
           <h1>Oops!</h1>
@@ -36,4 +36,3 @@ const Wrapper = styled.main`
 `
 
 export default ErrorPage
-

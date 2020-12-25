@@ -12,12 +12,12 @@ const CartButtons = () => {
       <Link to="/cart" className="cart-btn">
         Cart
         <span className="cart-container">
-          <FaShoppingCart/>
+          <FaShoppingCart />
           <span className="cart-value">12</span>
         </span>
       </Link>
       <button type="button" className="auth-btn">
-        Login <FaUserPlus/>
+        Login <FaUserPlus />
       </button>
     </Wrapper>
   )

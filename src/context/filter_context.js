@@ -19,7 +19,7 @@ const FilterContext = React.createContext()
 
 export const FilterProvider = ({ children }) => {
   return (
-    <FilterContext.Provider value='filter context'>
+    <FilterContext.Provider value="filter context">
       {children}
     </FilterContext.Provider>
   )

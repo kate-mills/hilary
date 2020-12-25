@@ -1,5 +1,5 @@
-import React from "react"
-import Img from "gatsby-image"
+import React from 'react'
+import Img from 'gatsby-image'
 
 const MenuItem = ({ item }) => {
   return (

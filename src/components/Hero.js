@@ -8,13 +8,22 @@ const Hero = () => {
   return (
     <Wrapper className="section-center">
       <article className="content">
-        <h1>Designs by<br/>Hilary Molloy</h1>
-        <p>Hand cut designs made with love and natural elements by yours truly, in the beautiful Napa Valley. *coming soon* hideandwild.com</p>
-        <Link to="/products" className="btn hero-btn">Shop now</Link>
+        <h1>
+          Designs by
+          <br />
+          Hilary Molloy
+        </h1>
+        <p>
+          Hand cut designs made with love and natural elements by yours truly,
+          in the beautiful Napa Valley. *coming soon* hideandwild.com
+        </p>
+        <Link to="/products" className="btn hero-btn">
+          Shop now
+        </Link>
       </article>
       <article className="img-container">
-        <img src={heroBcg2} alt="fashion img" className="main-img"/>
-        <img src={heroBcg} alt="fashion img" className="accent-img"/>
+        <img src={heroBcg2} alt="fashion img" className="main-img" />
+        <img src={heroBcg} alt="fashion img" className="accent-img" />
       </article>
     </Wrapper>
   )

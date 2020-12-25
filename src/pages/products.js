@@ -1,17 +1,19 @@
-import React from "react"
-import styled from "styled-components"
-import { SEO, Layout, 
+import React from 'react'
+import styled from 'styled-components'
+import {
+  SEO,
+  Layout,
   //Filters, ProductList, Sort, PageHero
-} from "../components"
+} from '../components'
 
-import {useProductsContext} from '../context/products_context'
+import { useProductsContext } from '../context/products_context'
 
 const ProductsPage = () => {
-  const {all_items, featured_items, onSale_items} = useProductsContext();
-  console.log('allItems', all_items, featured_items, onSale_items);
+  const { all_items, featured_items, onSale_items } = useProductsContext()
+  console.log('allItems', all_items, featured_items, onSale_items)
   return (
     <Layout>
-      <SEO title="Shop Jewelry"/>
+      <SEO title="Shop Jewelry" />
       <Wrapper>
         <h4>products page</h4>
       </Wrapper>

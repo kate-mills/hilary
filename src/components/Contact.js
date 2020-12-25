@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 
 const Contact = () => {
   return (
@@ -37,15 +37,21 @@ const Contact = () => {
               placeholder="Your Email"
               required
             />
-            <input type="tel" name="phone" id="phone" className="form-input" placeholder="Your Phone" />
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              className="form-input"
+              placeholder="Your Phone"
+            />
             <textarea
-                name="message"
-                id="message"
-                rows="7"
-                className="form-input"
-                placeholder="Hello there..."
-                required
-              />
+              name="message"
+              id="message"
+              rows="7"
+              className="form-input"
+              placeholder="Hello there..."
+              required
+            />
             <button type="submit" className="submit-btn">
               send
             </button>

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import logo from '../images/handw.svg'
 import { FaBars } from 'react-icons/fa'
-import  Link  from 'gatsby-plugin-transition-link/AniLink/Fade'
+import Link from 'gatsby-plugin-transition-link/AniLink/Fade'
 import { links } from '../utils/constants'
 import CartButtons from './CartButtons'
 import { useProductsContext } from '../context/products_context'
@@ -10,28 +10,29 @@ import { useUserContext } from '../context/user_context'
 import { GiPrayerBeads } from 'react-icons/gi'
 
 const Nav = () => {
-  const {openSidebar} = useProductsContext()
-  return(
+  const { openSidebar } = useProductsContext()
+  return (
     <NavContainer>
       <div className="nav-center">
         <div className="nav-header">
-          <Link to="/"><img src={logo} alt="Hide & Wild Logo"/><GiPrayerBeads className="necklace"/></Link>
-          <button type='button' className="nav-toggle"
-            onClick={openSidebar}
-          >
-            <FaBars/>
+          <Link to="/">
+            <img src={logo} alt="Hide & Wild Logo" />
+            <GiPrayerBeads className="necklace" />
+          </Link>
+          <button type="button" className="nav-toggle" onClick={openSidebar}>
+            <FaBars />
           </button>
         </div>
         <ul className="nav-links">
-          {links.map(link =>{
-            return(
+          {links.map(link => {
+            return (
               <li key={link.id}>
                 <Link to={link.url}>{link.text}</Link>
               </li>
             )
           })}
         </ul>
-        <CartButtons/>
+        <CartButtons />
       </div>
     </NavContainer>
   )
@@ -56,7 +57,7 @@ const NavContainer = styled.nav`
       width: 175px;
       margin-left: -15px;
     }
-    .necklace{
+    .necklace {
       height: 50px;
       background: transparent;
       position: relative;

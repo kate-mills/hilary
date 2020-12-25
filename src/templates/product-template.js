@@ -1,38 +1,39 @@
-import React from "react"
-import styled from "styled-components"
-import { Link } from "gatsby"
-import { graphql } from "gatsby"
-import Image from "gatsby-image"
-import { SEO, Layout } from "../components"
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import Image from 'gatsby-image'
+import { SEO, Layout } from '../components'
 
 const Product = ({ data }) => {
   return (
     <Layout>
-      <SEO title={`${data.item.name}`}/>
-        <Wrapper className="page section product-center">
-          <article itemScope itemType="https://schema.org/Product">
-            <div className="title">
+      <SEO title={`${data.item.name}`} />
+      <Wrapper className="page section product-center">
+        <article itemScope itemType="https://schema.org/Product">
+          <div className="title">
             <h4 itemProp="name">{data.item.name}</h4>
-              <div className="underline"></div>
-            </div>
-            <div>
-              <Image fluid={data.item.image.fluid} alt="" type="media" />
-            </div>
-            <p className="info">{data.item.description.description} </p>
-            <p className="price">${data.item.price}</p>
-          </article>
-        </Wrapper>
+            <div className="underline"></div>
+          </div>
+          <div>
+            <Image fluid={data.item.image.fluid} alt="" type="media" />
+          </div>
+          <p className="info">{data.item.description.description} </p>
+          <p className="price">${data.item.price}</p>
+        </article>
+      </Wrapper>
     </Layout>
   )
 }
-
 
 export const query = graphql`
   query($slug: String) {
     item: contentfulHilaryJewelry(slug: { eq: $slug }) {
       name
       slug
-      description{ description }
+      description {
+        description
+      }
       price
       category
       featured

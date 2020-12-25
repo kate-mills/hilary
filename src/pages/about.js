@@ -1,9 +1,9 @@
-import React from "react"
-import styled from "styled-components"
-import { SEO, Layout, PageHero } from "../components"
-import Image from "gatsby-image"
+import React from 'react'
+import styled from 'styled-components'
+import { SEO, Layout, PageHero } from '../components'
+import Image from 'gatsby-image'
 
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from 'gatsby'
 
 export const query = graphql`
   {
@@ -21,7 +21,7 @@ const AboutPage = () => {
   const { img } = useStaticQuery(query)
   return (
     <Layout>
-      <SEO title="About"/>
+      <SEO title="About" />
       <main>
         <PageHero title="about" />
         <Wrapper className="page section section-center">

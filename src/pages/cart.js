@@ -1,15 +1,17 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 //import { useCartContext } from "../context/cart_context"
 //import { Link } from "gatsby"
-import { SEO, Layout,
+import {
+  SEO,
+  Layout,
   //CartContent, PageHero
-} from "../components"
+} from '../components'
 
 const CartPage = () => {
   return (
     <Layout>
-      <SEO title="Cart"/>
+      <SEO title="Cart" />
       <Wrapper>
         <h4>cart page</h4>
       </Wrapper>
