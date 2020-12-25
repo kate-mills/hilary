@@ -32,12 +32,16 @@ const Product = ({ data }) => {
             <h5 className='price'>{formatPrice(price)}</h5>
             <p className='desc'>{description}</p>
 
-            <p className='info'>
-              {stockQuantity < 2 ? <span className="red">Rare - only 1 left!</span>: <span>Currently In stock!</span> }
-            </p>
-            <p className='info'>
-              {onSale && <span className="red">On Sale!</span> }
-            </p>
+            { stockQuantity < 2 ?
+                <p className='info'> <span className="red">Rare - only 1 left!</span></p>:
+                null
+            }
+            { onSale && (
+              <p className='info'>
+                <span className="red">On Sale!</span>
+              </p>
+            )}
+            <hr/>
             {stockQuantity > 0 && <AddToCart/>}
           </section>
         </div>
