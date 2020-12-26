@@ -18,25 +18,19 @@ const query = graphql`
     allItems: allContentfulHilaryJewelry {
       edges {
         node {
-          name
-          reviewCount
-          stars
-          stockQuantity
-          slug
-          id
-          description {
-            description
-          }
-          images {
-          fluid{
-              ...GatsbyContentfulFluid
-            }
-          }
-          price
           colors
           category
+          description { description }
           featured
+          id
+          images { fluid{ ...GatsbyContentfulFluid } }
+          name
           onSale
+          price
+          reviewCount
+          slug
+          stars
+          stockQuantity
         }
       }
     }
@@ -45,50 +39,38 @@ const query = graphql`
     ) {
       edges {
         node {
-          name
-          reviewCount
-          stars
-          stockQuantity
-          slug
-          id
-          description {
-            description
-          }
-          images {
-          fluid{
-              ...GatsbyContentfulFluid
-            }
-          }
-          price
           colors
           category
+          description { description }
           featured
+          id
+          images { fluid{ ...GatsbyContentfulFluid } }
+          name
           onSale
+          price
+          reviewCount
+          slug
+          stars
+          stockQuantity
         }
       }
     }
     onSaleItems: allContentfulHilaryJewelry(filter: { onSale: { eq: true } }) {
       edges {
         node {
-          name
-          reviewCount
-          stars
-          stockQuantity
-          slug
-          id
-          description {
-            description
-          }
-          images {
-          fluid{
-              ...GatsbyContentfulFluid
-            }
-          }
-          price
           colors
           category
+          description { description }
           featured
+          id
+          images { fluid{ ...GatsbyContentfulFluid } }
+          name
           onSale
+          price
+          reviewCount
+          slug
+          stars
+          stockQuantity
         }
       }
     }
