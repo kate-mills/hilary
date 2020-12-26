@@ -39,8 +39,10 @@ const Wrapper = styled.article`
   img {
     width: 100%;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
+    background: var(--clr-white);
     border-radius: var(--radius);
+    border: 1px solid var(--clr-primary-4);
     transition: var(--transition);
   }
   .link {

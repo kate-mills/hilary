@@ -75,7 +75,7 @@ export const query = graphql`
       featured
       id
       images {
-        fluid {
+      fluid(resizingBehavior: CROP) {
           ...GatsbyContentfulFluid
         }
       }

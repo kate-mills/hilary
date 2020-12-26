@@ -9,7 +9,7 @@ const Services = () => {
         <article className="header">
           <h3>
             custom jewelry
-            <br /> designed only for you
+            <br />designed and created by Hilary
           </h3>
           <p>A little something here</p>
         </article>

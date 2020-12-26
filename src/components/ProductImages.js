@@ -9,6 +9,9 @@ const ProductImages = ({images=[],  description}) => {
       <Image
         fluid={main.fluid}
         alt={description || ""} className="main"
+        objectFit='contain'
+
+
       />
       <div className="gallery">
         {images.map((img, index)=>{
@@ -27,17 +30,18 @@ const ProductImages = ({images=[],  description}) => {
   )
 }
 
-const WrapImage = styled(Image)``
 
 const Wrapper = styled.section`
+  margin: 0 auto;
   .main {
     height: 600px;
   }
-  img {
+  .gatsby-image-wrapper {
+    margin: 0 auto;
     width: 100%;
     display: block;
     border-radius: var(--radius);
-    object-fit: contain !important;
+    object-fit: contain;
   }
   .gallery {
     margin-top: 1rem;
@@ -47,7 +51,6 @@ const Wrapper = styled.section`
     img {
       height: 100px;
       cursor: pointer;
-      object-fit: cover !important;
     }
   }
   .active {
@@ -60,7 +63,6 @@ const Wrapper = styled.section`
     .gallery {
       img {
         height: 50px;
-        object-fit: cover !important;
       }
     }
   }
@@ -71,7 +73,6 @@ const Wrapper = styled.section`
     .gallery {
       img {
         height: 75px;
-        object-fit: cover !important;
       }
     }
   }
