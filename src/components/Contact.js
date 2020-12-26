@@ -8,7 +8,7 @@ const Contact = () => {
         <h3>Hilary wants to hear from you!</h3>
         <div className="content">
           <p>
-            Please fill out our form and Hilary will get back to you as soon as
+            Leave your information and Hilary will get back to you as soon as
             she can. Thank you!
           </p>
           <form

@@ -8,10 +8,10 @@ const Services = () => {
       <div className="section-center">
         <article className="header">
           <h3>
-            custom jewelry
-            <br />designed and created by Hilary
+            Some of our favorite
+            <br />jewelry tips revealed!
           </h3>
-          <p>A little something here</p>
+          <p>Hilza, maybe some fun ways you recommend storing, cleaning, wearing, not wearing your jewelry items. </p>
         </article>
         <div className="services-center">
           {services.map(service => {

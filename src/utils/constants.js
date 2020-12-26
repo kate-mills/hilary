@@ -23,23 +23,23 @@ export const services = [
   {
     id: 1,
     icon: <GiPrayerBeads />,
-    title: 'mission',
+    title: 'SHINE',
     text:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+      'Make your own DIY Cleaner!  I am just making this up, Hil. And maybe a little recipe.',
   },
   {
     id: 2,
     icon: <GiPowerRing />,
-    title: 'vision',
+    title: 'STORE',
     text:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+      'My favorite way to store earrings is ...blah. Or, wrap in a microfiber cloth. Again, just making this up.',
   },
   {
     id: 3,
     icon: <GiEarrings />,
-    title: 'history',
+    title: 'GIFTS',
     text:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi',
+      'Sizing can be difficult, but we sell gift certificates!! And, everyone loves one of those! Something else here... Not this.',
   },
 ]
 
