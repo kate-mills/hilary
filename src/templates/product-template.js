@@ -15,6 +15,7 @@ import {
 
 const Product = ({ data }) => {
   const {
+    colors,
     description: { description },
     images,
     name,
@@ -55,7 +56,11 @@ const Product = ({ data }) => {
                 </p>
               )}
               <hr />
-              {stockQuantity > 0 && <AddToCart item={{...data}} stockQuantity={stockQuantity}/>}
+              { stockQuantity > 0 && <AddToCart 
+                colors={(colors && colors.length > 0) ? colors: ['slategray']}
+                item={{...data}}
+                stockQuantity={stockQuantity}/>
+              }
             </section>
           </div>
         </div>
