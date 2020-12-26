@@ -68,6 +68,7 @@ const Wrapper = styled.article`
   .price-small {
     color: var(--clr-primary-5);
   }
+  .quantity-btns,
   .amount-btns {
     width: 75px;
     button {

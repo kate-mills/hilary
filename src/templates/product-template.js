@@ -24,7 +24,6 @@ const Product = ({ data }) => {
     stars,
     stockQuantity,
   } = data.item
-
   return (
     <Layout>
       <SEO title={name} description={description} />
@@ -56,7 +55,7 @@ const Product = ({ data }) => {
                 </p>
               )}
               <hr />
-              {stockQuantity > 0 && <AddToCart item={{...data.item}}/>}
+              {stockQuantity > 0 && <AddToCart item={{...data}} stockQuantity={stockQuantity}/>}
             </section>
           </div>
         </div>

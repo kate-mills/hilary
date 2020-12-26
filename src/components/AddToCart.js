@@ -3,24 +3,36 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { FaCheck } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
-import AmountButtons from './AmountButtons'
+import QuantityButtons from './QuantityButtons'
 
-const AddToCart = ({item: id, stockQuantity, colors=['silver']}) => {
+const AddToCart = ({item: id, colors=['silver'], stockQuantity}) => {
 
   const [mainColor, setMainColor] = useState()
-  const [amount, setAmount] = useState(1)
+  const [quantity, setQuantity] = useState(1)
 
   const increase = () => {
-
+    setQuantity((prevQuantity)=>{
+      let tempQuantity = prevQuantity + 1
+      if(tempQuantity > stockQuantity){
+        tempQuantity = stockQuantity
+      }
+      return tempQuantity
+    })
   }
   const decrease = () => {
-
+    setQuantity((prevQuantity)=>{
+      let tempQuantity = prevQuantity - 1
+      if(tempQuantity < 1){
+        tempQuantity = 1
+      }
+      return tempQuantity
+    })
   }
 
   return (
     <Wrapper>
       <div className="colors">
-        <span>colors: </span>
+        <span>colors:</span>
         <div>{
           colors.map((color, index)=>{
             return(
@@ -36,8 +48,8 @@ const AddToCart = ({item: id, stockQuantity, colors=['silver']}) => {
       </div>
 
       <div className="btn-container">
-        <AmountButtons
-          amount={amount}
+        <QuantityButtons
+          quantity={quantity}
           increase={increase}
           decrease={decrease}
         />
