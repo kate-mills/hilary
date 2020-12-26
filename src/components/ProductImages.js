@@ -6,12 +6,10 @@ const ProductImages = ({images=[],  description}) => {
   const [main, setMain ] = useState(images[0])
   return (
     <Wrapper>
-      <Image
-        fluid={main.fluid}
-        alt={description || ""} className="main"
-        objectFit='contain'
-
-
+      <img
+        src={main.fluid.src}
+        alt={description || ""}
+        className="main"
       />
       <div className="gallery">
         {images.map((img, index)=>{
@@ -30,14 +28,11 @@ const ProductImages = ({images=[],  description}) => {
   )
 }
 
-
 const Wrapper = styled.section`
-  margin: 0 auto;
   .main {
     height: 600px;
   }
-  .gatsby-image-wrapper {
-    margin: 0 auto;
+  img {
     width: 100%;
     display: block;
     border-radius: var(--radius);
@@ -77,5 +72,4 @@ const Wrapper = styled.section`
     }
   }
 `
-
 export default ProductImages

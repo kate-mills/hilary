@@ -28,7 +28,7 @@ const query = graphql`
             description
           }
           images {
-          fluid(resizingBehavior: CROP){
+          fluid{
               ...GatsbyContentfulFluid
             }
           }
@@ -55,7 +55,7 @@ const query = graphql`
             description
           }
           images {
-          fluid(resizingBehavior: CROP){
+          fluid{
               ...GatsbyContentfulFluid
             }
           }
@@ -80,7 +80,7 @@ const query = graphql`
             description
           }
           images {
-          fluid(resizingBehavior: CROP){
+          fluid{
               ...GatsbyContentfulFluid
             }
           }

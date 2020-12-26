@@ -41,7 +41,7 @@ const Product = ({ data }) => {
               itemType="https://schema.org/Product"
             >
               <h2>{name}</h2>
-              <Stars stars={stars} reviewCount={reviewCount}/>
+              <Stars stars={stars} reviewCount={reviewCount} />
               <h5 className="price">{formatPrice(price)}</h5>
               <p className="desc">{description}</p>
               {stockQuantity < 2 && (
@@ -75,7 +75,7 @@ export const query = graphql`
       featured
       id
       images {
-      fluid(resizingBehavior: CROP) {
+        fluid {
           ...GatsbyContentfulFluid
         }
       }
@@ -89,37 +89,34 @@ export const query = graphql`
     }
   }
 `
+
 const Wrapper = styled.main`
   .red {
     color: var(--clr-primary-4);
+    width: fit-content;
+    white-space: pre;
   }
   .product-center {
     display: grid;
     gap: 4rem;
     margin-top: 2rem;
-    > section {
-      > h2 {
-        max-width: 24rem;
-      }
-    }
   }
   .price {
     color: var(--clr-primary-5);
   }
   .desc {
     line-height: 2;
-    max-width: 25em;
+    max-width: 45em;
   }
   .info {
     text-transform: capitalize;
-    width: 500px;
+    width: 300px;
     display: grid;
-    grid-template-columns: 135px 1fr;
+    grid-template-columns: 125px 1fr;
     span {
       font-weight: 700;
     }
   }
-
   @media (min-width: 992px) {
     .product-center {
       grid-template-columns: 1fr 1fr;
@@ -130,4 +127,5 @@ const Wrapper = styled.main`
     }
   }
 `
+
 export default Product
