@@ -15,7 +15,7 @@ import {
 
 const query = graphql`
   {
-    allItems: allContentfulHilaryJewelry {
+    allItems:allContentfulHilaryJewelry(sort: {order: ASC, fields: name}) {
       edges {
         node {
           colors
@@ -38,7 +38,7 @@ const query = graphql`
         }
       }
     }
-    featuredItems: allContentfulHilaryJewelry(
+    featuredItems: allContentfulHilaryJewelry(sort: {order: ASC, fields: name},
       filter: { featured: { eq: true } }
     ) {
       edges {

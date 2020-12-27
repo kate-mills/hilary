@@ -18,6 +18,7 @@ const initialState = {
   all_items: [],
   filtered_items: [],
   grid_view: true,
+  sort: 'name-a',
 }
 
 const FilterContext = React.createContext()
@@ -38,9 +39,15 @@ export const FilterProvider = ({ children }) => {
     dispatch({type: SET_LISTVIEW})
   }
 
+  const updateSort = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    dispatch({type:  UPDATE_SORT, payload: value})
+  }
+
 
   return (
-    <FilterContext.Provider value={{...state, setGridView, setListView}}>
+    <FilterContext.Provider value={{...state, setGridView, setListView, updateSort }}>
       {children}
     </FilterContext.Provider>
   )
