@@ -15,7 +15,7 @@ const filter_reducer = (state, action) => {
     return {
       ...state,
       all_items: [...action.payload],
-      filtler_items: [...action.payload],
+      filtered_items: [...action.payload],
     }
   }
   throw new Error(`No Matching "${action.type}" - action type`)
