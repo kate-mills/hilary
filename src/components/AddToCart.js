@@ -7,7 +7,7 @@ import QuantityButtons from './QuantityButtons'
 
 const AddToCart = ({item, colors=['slategray'], stockQuantity=1}) => {
 
-  const [mainColor, setMainColor] = useState()
+  const [mainColor, setMainColor] = useState(colors[0])
   const [quantity, setQuantity] = useState(1)
 
   const increase = () => {
