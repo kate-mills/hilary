@@ -11,11 +11,13 @@ export const wrapRootElement = ({ element }) => {
   return (
     <>
       <UserProvider>
-        <FilterProvider>
           <CartProvider>
-            <ProductsProvider>{element}</ProductsProvider>
+            <ProductsProvider>
+              <FilterProvider>
+                {element}
+                </FilterProvider>
+              </ProductsProvider>
           </CartProvider>
-        </FilterProvider>
       </UserProvider>
     </>
   )

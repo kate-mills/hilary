@@ -77,28 +77,17 @@ const query = graphql`
   }
 `
 
-const initialState = {
-  isSidebarOpen: false,
-  products_loading: false,
-  products_error: false,
-  all_items: [],
-  featured_items: [],
-  onSale_items: [],
-}
+const initialState = { isSidebarOpen: false, products_loading: false, products_error: false, all_items: [], featured_items: [], onSale_items: [] };
 
-const ProductsContext = React.createContext()
+const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
-  const { allItems, featuredItems, onSaleItems } = useStaticQuery(query)
+  const { allItems, featuredItems, onSaleItems } = useStaticQuery(query);
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const openSidebar = () => {
-    dispatch({ type: SIDEBAR_OPEN })
-  }
-  const closeSidebar = () => {
-    dispatch({ type: SIDEBAR_CLOSE })
-  }
+  const openSidebar =  () => { dispatch({ type: SIDEBAR_OPEN }) };
+  const closeSidebar = () => { dispatch({ type: SIDEBAR_CLOSE }) };
 
   return (
     <ProductsContext.Provider
@@ -114,8 +103,8 @@ export const ProductsProvider = ({ children }) => {
       {children}
     </ProductsContext.Provider>
   )
-}
-// make sure use
+};
+
 export const useProductsContext = () => {
   return useContext(ProductsContext)
-}
+};
