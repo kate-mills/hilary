@@ -8,7 +8,7 @@ export const query = graphql`
   {
     fashion: file(relativePath: { eq: "index-hero.png" }) {
       childImageSharp {
-        fluid{
+        fluid(cropFocus: SOUTHWEST, fit: CONTAIN){
           ...GatsbyImageSharpFluid
         }
       }

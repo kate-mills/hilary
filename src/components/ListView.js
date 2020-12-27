@@ -1,24 +1,44 @@
 import React from 'react'
 import styled from 'styled-components'
-//import { formatPrice } from '../utils/helpers'
-//import { Link } from 'gatsby'
-const ListView = () => {
-  return <h4>list view</h4>
+import { formatPrice } from '../utils/helpers'
+import { Link } from 'gatsby'
+import Img from 'gatsby-image'
+
+const ListView = ({products}) => {
+  return(
+    <Wrapper>
+      {products.map(({node})=>{
+        return (
+          <article key={node.id}>
+            <Img fluid={node.images[0].fluid} alt={node.name}/>
+            <div>
+              <h4>{node.name}</h4>
+              <h5 className="price">{formatPrice(node.price)}</h5>
+              <p>{node.description.description.substring(0, 150)}...</p>
+              <Link to={`/products/${node.slug}`} className="btn">Details</Link>
+            </div>
+          </article>
+        )
+      })}
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.section`
   display: grid;
   row-gap: 3rem;
 
-  img {
-    width: 100%;
+  div.gatsby-image-wrapper{
     display: block;
     width: 300px;
     height: 200px;
-    object-fit: cover;
     border-radius: var(--radius);
     margin-bottom: 1rem;
+    img{
+      object-fit: contain !important;
+    }
   }
+
   h4 {
     margin-bottom: 0.5rem;
   }

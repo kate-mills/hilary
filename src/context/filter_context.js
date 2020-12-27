@@ -17,6 +17,7 @@ import { useProductsContext } from './products_context'
 const initialState = {
   all_items: [],
   filtered_items: [],
+  grid_view: false,
 }
 
 const FilterContext = React.createContext()

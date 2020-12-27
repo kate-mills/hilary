@@ -23,7 +23,11 @@ const query = graphql`
           description { description }
           featured
           id
-          images { fluid{ ...GatsbyContentfulFluid } }
+          images { 
+            fluid(resizingBehavior: SCALE){
+              ...GatsbyContentfulFluid
+            }
+          }
           name
           onSale
           price
@@ -44,7 +48,11 @@ const query = graphql`
           description { description }
           featured
           id
-          images { fluid{ ...GatsbyContentfulFluid } }
+          images { 
+            fluid(resizingBehavior: SCALE){
+              ...GatsbyContentfulFluid
+            }
+          }
           name
           onSale
           price
@@ -63,7 +71,11 @@ const query = graphql`
           description { description }
           featured
           id
-          images { fluid{ ...GatsbyContentfulFluid } }
+          images { 
+            fluid(resizingBehavior: SCALE){
+              ...GatsbyContentfulFluid
+            }
+          }
           name
           onSale
           price
