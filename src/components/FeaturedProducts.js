@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Product from './Product'
 
 const FeaturedProducts = () => {
-  const { featured_products } = useProductsContext()
+  const { featured_items:products } = useProductsContext()
   return (
     <Wrapper className="section">
       <div className="title">
@@ -12,7 +12,7 @@ const FeaturedProducts = () => {
         <div className="underline" />
       </div>
       <div className="section-center featured">
-        {featured_products.map(({ node }) => {
+        {products.map(({ node }) => {
           return (
             <Product key={node.id} {...node} />
           )
