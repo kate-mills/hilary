@@ -155,6 +155,10 @@ p {
     transform: rotate(360deg);
   }
 }
+*,
+select,
+input,
+textarea,
 button{
   outline-color: var(--clr-primary-4);
 }
