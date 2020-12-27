@@ -12,7 +12,6 @@ import {
 import { useProductsContext } from '../context/products_context'
 
 const ProductsPage = () => {
-  const { all_items, featured_items, onSale_items } = useProductsContext()
   return (
     <Layout>
       <SEO
