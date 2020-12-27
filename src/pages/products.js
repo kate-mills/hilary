@@ -3,20 +3,34 @@ import styled from 'styled-components'
 import {
   SEO,
   Layout,
-  //Filters, ProductList, Sort, PageHero
+  Filters,
+  ProductList,
+  Sort,
+  PageHero,
 } from '../components'
 
 import { useProductsContext } from '../context/products_context'
 
 const ProductsPage = () => {
   const { all_items, featured_items, onSale_items } = useProductsContext()
-  console.log('allItems', all_items, featured_items, onSale_items)
   return (
     <Layout>
-      <SEO title="Shop Jewelry" />
-      <Wrapper>
-        <h4>products page</h4>
-      </Wrapper>
+      <SEO
+        title="Shop Jewelry"
+        description="Shop all of our hand cut designs that Hilary Molloy makes with love and natural elements in the beautiful Napa Valley."
+      />
+      <main>
+        <PageHero title="products" />
+        <Wrapper className="page">
+          <div className="section-center products">
+            <Filters />
+            <div>
+              <Sort />
+              <ProductList />
+            </div>
+          </div>
+        </Wrapper>
+      </main>
     </Layout>
   )
 }
