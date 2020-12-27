@@ -1,10 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import heroBcg from '../images/fashion.jpg'
-import heroBcg2 from '../images/interesting.jpg'
+import Image from 'gatsby-image'
+import { graphql, useStaticQuery } from 'gatsby'
 
+export const query = graphql`
+  {
+    fashion: file(relativePath: { eq: "index-hero.png" }) {
+      childImageSharp {
+        fluid{
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 const Hero = () => {
+  const { fashion } = useStaticQuery(query)
   return (
     <Wrapper className="section-center">
       <article className="content">
@@ -22,8 +34,11 @@ const Hero = () => {
         </Link>
       </article>
       <article className="img-container">
-        <img src={heroBcg2} alt="fashion img" className="main-img" />
-        <img src={heroBcg} alt="fashion img" className="accent-img" />
+        <Image 
+          objectFit="contain"
+          fluid={fashion.childImageSharp.fluid} alt="Compilation of 2 images, of women wearing Hide and Wild jewelry."
+          className="main-img"
+        />
       </article>
     </Wrapper>
   )
@@ -33,9 +48,7 @@ const Wrapper = styled.section`
   min-height: 60vh;
   display: grid;
   place-items: center;
-  .img-container {
-    display: none;
-  }
+  .img-container { display: none; }
 
   p {
     line-height: 2;
@@ -59,36 +72,38 @@ const Wrapper = styled.section`
       font-size: 1rem;
     }
     .img-container {
+      width: 100%;
       display: block;
       position: relative;
     }
-    .main-img {
+    .gatsby-image-wrapper{
       width: 100%;
       height: 550px;
       position: relative;
       border-radius: var(--radius);
+      object-fit: contain;
       display: block;
-      object-fit: cover;
     }
-    .accent-img {
+    .gatsby-image-wrapper img{
+      object-fit: contain;
+    }
+    .main-img {
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 250px;
-      transform: translateX(-50%);
+      transform: translateX(-10%);
       border-radius: var(--radius);
+      object-fit: contain;
     }
     .img-container::before {
       content: '';
       position: absolute;
-      width: 10%;
+      width: 0%;
       height: 80%;
       background: var(--clr-primary-9);
       bottom: 0%;
-      left: -8%;
       border-radius: var(--radius);
     }
   }
 `
-
 export default Hero
