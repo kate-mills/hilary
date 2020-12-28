@@ -12,10 +12,17 @@ import {
 
 const filter_reducer = (state, action) => {
   if(action.type === LOAD_ITEMS){
+    let maxPrice = action.payload.map(({node}) => node.price)
+    maxPrice = Math.max(...maxPrice)
     return {
       ...state,
       all_items: [...action.payload],
       filtered_items: [...action.payload],
+      filters: {
+        ...state.filters,
+        max_price: maxPrice,
+        price: maxPrice,
+      }
     }
   }
   if(action.type === SET_GRIDVIEW){
@@ -51,6 +58,13 @@ const filter_reducer = (state, action) => {
       })
     }
     return {...state, filtered_items: tempItems}
+  }
+  if(action.type === UPDATE_FILTERS){
+    const {name, value} = action.payload
+    return {...state, filters: {...state.filters, [name]:value}}
+  }
+  if(action.type === FILTER_ITEMS){
+    return {...state}
   }
   throw new Error(`No Matching "${action.type}" - action type`)
 }

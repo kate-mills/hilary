@@ -5,4 +5,14 @@ export const formatPrice = (number) => {
   }).format(number)
 }
 
-export const getUniqueValues = () => {}
+export const getUniqueValues = (items, filter, isArray=false) => {
+  let unique = ["all", ...new Set(
+    items.map(({node}) => {
+      return node[filter]
+    })
+  )];
+  if(isArray){
+    unique = unique.flat();
+  }
+  return unique 
+}
