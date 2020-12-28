@@ -33,7 +33,6 @@ export const FilterProvider = ({ children }) => {
   }, [all_items])
 
   useEffect(()=>{
-    console.log('go sort items', state.sort)
     dispatch({type: SORT_ITEMS})
   }, [all_items, state.sort])
 

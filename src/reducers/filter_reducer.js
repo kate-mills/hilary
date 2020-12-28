@@ -28,7 +28,29 @@ const filter_reducer = (state, action) => {
     return {...state, sort: action.payload}
   }
   if(action.type === SORT_ITEMS){
-    return {...state}
+    const {sort, filtered_items} = state
+    let tempItems = [...filtered_items];
+    if(sort === 'price-lowest'){
+      tempItems = tempItems.sort(
+        (a, b) => a.node.price - b.node.price
+      ) 
+    }
+    if(sort === 'price-highest'){
+      tempItems = tempItems.sort(
+        (a, b) => b.node.price - a.node.price
+      ) 
+    }
+    if(sort === 'name-a'){
+      tempItems = tempItems.sort((a, b) => {
+         return  a.node.name.localeCompare(b.node.name)
+      })
+    }
+    if(sort === 'name-z'){
+      tempItems = tempItems.sort((a, b) => {
+         return  b.node.name.localeCompare(a.node.name)
+      })
+    }
+    return {...state, filtered_items: tempItems}
   }
   throw new Error(`No Matching "${action.type}" - action type`)
 }
