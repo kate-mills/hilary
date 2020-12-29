@@ -8,13 +8,25 @@ import {
   COUNT_CART_TOTALS,
 } from '../actions'
 
-const initialState = {}
+const initialState = {
+  cart:[],
+  total_items: 0,
+  total_amount: 0,
+  shipping_fee: 534,
+}
 
 const CartContext = React.createContext()
 
 export const CartProvider = ({ children }) => {
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  // Add To Cart
+  const addToCart = (id, color, quantity, item)=>{
+    dispatch({type: ADD_TO_CART, payload:{id, color, quantity, item}})
+  }
   return (
-    <CartContext.Provider value="cart context">{children}</CartContext.Provider>
+    <CartContext.Provider value={{...state, addToCart}}>{children}</CartContext.Provider>
   )
 }
 // make sure use
