@@ -64,8 +64,38 @@ const filter_reducer = (state, action) => {
     return {...state, filters: {...state.filters, [name]:value}}
   }
   if(action.type === FILTER_ITEMS){
-    console.log('filtering')
-    return {...state}
+    const {all_items} = state
+    const {category, color,  max_price, onSale, price, text}= state.filters
+    let tempItems = [...all_items]
+
+    // SEARCH BOX
+    if(text){
+      tempItems = tempItems.filter(({node})=>{
+        //return node.name.toLowerCase().startsWith(text)
+        return (node.name.toLowerCase().indexOf(text) >= 0); // fuzzy search
+      })
+    }
+    // CATEGORIES - ex: braceletes, earrings
+    if(category!=='all'){
+      tempItems = tempItems.filter(({node}) =>{
+        return (node.category.toLowerCase() === category)
+      })
+    }
+    // COLORS
+    if(color !== 'all'){
+      tempItems = tempItems.filter(({node})=>{
+        return node.colors.find((c) => c === color)
+      })
+    }
+    // PRICE - in component price is set to the greatest price as default
+    if(price < max_price){ 
+      tempItems = tempItems.filter(({node}) => node.price <= price)
+    }
+    // ON SALE
+    if(onSale){
+      tempItems = tempItems.filter(({node}) => node.onSale === true)
+    }
+    return {...state, filtered_items: tempItems}
   }
   if(action.type === CLEAR_FILTERS){
     return {
@@ -75,7 +105,6 @@ const filter_reducer = (state, action) => {
         text: '',
         category: 'all',
         color: 'all',
-        company: 'all',
         price: state.filters.max_price,
         onSale: false,
       }

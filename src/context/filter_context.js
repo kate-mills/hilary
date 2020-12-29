@@ -22,7 +22,7 @@ const initialState = {
   filters: {
     category: 'all',
     color: 'all',
-    company: 'all',
+    //company: 'all',
     max_price: 0,
     min_price: 0,
     onSale: false,
@@ -70,7 +70,6 @@ export const FilterProvider = ({ children }) => {
     }
     if(name==='price'){
       value = Number(value)
-      console.log('number price', value)
     }
     if(name==='onSale'){
       value = e.target.checked

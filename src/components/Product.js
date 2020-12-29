@@ -22,7 +22,7 @@ const Product = (props) => {
         <Link to={`/items/${slug}`} className="link"><FaSearch/></Link>
       </div>
       <footer>
-        <h5>{name}</h5>
+        <h5>{name.substring(0, 21)}...</h5>
         {/* Reminder: Use cents for safer calculations */}
         <p>{formatPrice(price)}</p>
       </footer>
@@ -42,7 +42,6 @@ const Wrapper = styled.article`
     object-fit: contain;
     background: var(--clr-white);
     border-radius: var(--radius);
-    border: 1px solid var(--clr-primary-4);
     transition: var(--transition);
   }
   .link {
