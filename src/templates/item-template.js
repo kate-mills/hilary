@@ -59,8 +59,8 @@ const Product = ({ data }) => {
               <hr />
               { stockQuantity > 0 && <AddToCart 
                 id={id}
-                colors={colors || ['slategray']}
-                item={{...data}}
+                colors={colors}
+                item={{...data.item}}
                 stockQuantity={stockQuantity}/>
               }
             </section>
@@ -93,6 +93,7 @@ export const query = graphql`
       stars
       slug
       stockQuantity
+      wholePrice
     }
   }
 `

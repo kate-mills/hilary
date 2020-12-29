@@ -35,6 +35,7 @@ const query = graphql`
           slug
           stars
           stockQuantity
+          wholePrice
         }
       }
     }
@@ -60,6 +61,7 @@ const query = graphql`
           slug
           stars
           stockQuantity
+          wholePrice
         }
       }
     }
@@ -83,6 +85,7 @@ const query = graphql`
           slug
           stars
           stockQuantity
+          wholePrice
         }
       }
     }
