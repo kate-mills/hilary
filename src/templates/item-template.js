@@ -15,6 +15,7 @@ import {
 
 const Product = ({ data }) => {
   const {
+    id,
     colors,
     description: { description },
     images,
@@ -57,7 +58,8 @@ const Product = ({ data }) => {
               )}
               <hr />
               { stockQuantity > 0 && <AddToCart 
-                colors={(colors && colors.length > 0) ? colors: ['slategray']}
+                id={id}
+                colors={colors || ['slategray']}
                 item={{...data}}
                 stockQuantity={stockQuantity}/>
               }
