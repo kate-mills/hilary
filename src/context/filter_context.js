@@ -20,14 +20,14 @@ const initialState = {
   grid_view: true,
   sort: 'name-a',
   filters: {
-    text: '',
     category: 'all',
     color: 'all',
     company: 'all',
-    min_price: 0,
     max_price: 0,
-    price: 0,
+    min_price: 0,
     onSale: false,
+    price: 0,
+    text: '',
   }
 }
 
