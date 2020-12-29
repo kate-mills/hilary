@@ -13,12 +13,13 @@ const Filters = () => {
       min_price,
       max_price,
       price,
-      shipping
+      onSale,
     },
     updateFilters, clearFilters, all_items } = useFilterContext()
 
   const categories = getUniqueValues(all_items, 'category')
   const colors = getUniqueValues(all_items, 'colors', {isArray: true})
+  const companies = ['all', 'Hide & Wild']
 
 
   return (
@@ -38,8 +39,102 @@ const Filters = () => {
           </div>
           {/* end search input */}
           {/* categories */}
+          <div className="form-control">
+            <h5>category</h5>
+            <div>
+              {
+                categories.map((c, index)=>{
+                  return(
+                    <button
+                      key={index}
+                      className={`${category === c.toLowerCase() ? 'active': null}`}
+                      onClick={updateFilters}
+                      name="category"
+                      type="button"
+                    >{c}</button>
+                  )
+              })
+              }
+            </div>
+          </div>
           {/* end categories */}
+          {/* companies */}
+          <div className="form-control">
+            <h5>Company</h5>
+            <div>
+            <select name="company" value={company} onChange={updateFilters} className="company">
+              {
+                companies.map((c, index)=>{
+                  return (
+                    <option key={index} value={c}>
+                      {c}
+                    </option>
+                  )
+              })
+              }
+            </select>
+            </div>
+          </div>
+          {/* end companies */}
+          {/* colors */}
+          <div className="form-control">
+            <h5>Colors</h5>
+            <div className="colors">
+              { colors.map((c, index)=>{
+                if(c === 'all'){
+                  return(
+                    <button
+                      name='color'
+                      onClick={updateFilters}
+                      data-color="all"
+                      className={`${ color==='all' ? 'all-btn active': 'all-btn' }`}
+                      key={index}
+                    >all</button>
+                  )
+                }
+                return(<button
+                    name='color'
+                    value={c}
+                    key={index}
+                    data-color={c}
+                    onClick={updateFilters}
+                    style={{background: c}}
+                    className={`${color === c? 'color-btn active': 'color-btn'}`}
+                  >{color === c ? <FaCheck/>: null}</button>
+                )
+              })
+              }
+            </div>
+          </div>
+          {/* end colors */}
+          {/* price */}
+          <div className="form-control">
+            <h5>price</h5>
+            <p className="price">{formatPrice(price)}</p>
+            <input
+              type="range"
+              name="price"
+              onChange={updateFilters}
+              min={min_price}
+              max={max_price}
+              value={price}
+            />
+          </div>
+          {/* end price */}
+          {/* onSale */}
+          <div className="form-control onSale">
+            <label htmlFor="onSale">on sale</label>
+            <input
+              type='checkbox'
+              name='onSale'
+              id='onSale'
+              checked={onSale}
+              onChange={updateFilters}
+            />
+          </div>
+          {/* end onSale */}
         </form>
+    <button type="button" className='clear-btn' onClick={clearFilters}>clear filters</button>
       </div>
     </Wrapper>
   )
@@ -74,6 +169,8 @@ const Wrapper = styled.section`
     letter-spacing: var(--spacing);
     color: var(--clr-grey-5);
     cursor: pointer;
+    outline-color: transparent;
+
   }
   .active {
     border-color: var(--clr-grey-5);
@@ -122,7 +219,7 @@ const Wrapper = styled.section`
   .price {
     margin-bottom: 0.25rem;
   }
-  .shipping {
+  .onSale {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
@@ -131,7 +228,7 @@ const Wrapper = styled.section`
     font-size: 1rem;
   }
   .clear-btn {
-    background: var(--clr-red-dark);
+    background: var(--clr-primary-2);
     color: var(--clr-white);
     padding: 0.25rem 0.5rem;
     border-radius: var(--radius);
