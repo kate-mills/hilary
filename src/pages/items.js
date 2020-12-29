@@ -13,13 +13,13 @@ const ProductsPage = () => {
   return (
     <Layout>
       <SEO
-        title="Shop Jewelry"
+        title="All Jewelry"
         description="Shop all of our hand cut designs that Hilary Molloy makes with love and natural elements in the beautiful Napa Valley."
       />
       <main>
-        <PageHero title="products" />
+        <PageHero title="all Jewelry" />
         <Wrapper className="page">
-          <div className="section-center products">
+          <div className="section-center items">
             <Filters />
             <div>
               <Sort />
@@ -33,13 +33,13 @@ const ProductsPage = () => {
 }
 
 const Wrapper = styled.div`
-  .products {
+  .items {
     display: grid;
     gap: 3rem 1.5rem;
     margin: 4rem auto;
   }
   @media (min-width: 768px) {
-    .products {
+    .items {
       grid-template-columns: 200px 1fr;
     }
   }

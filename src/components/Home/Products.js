@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 const getProducts = graphql`
   {
-    products: allContentfulHilaryJewelry {
+    items: allContentfulHilaryJewelry {
       edges {
         node {
           id
@@ -33,8 +33,8 @@ export default function Products() {
             <div className="container">
               <Title title="Featured Jewelry" />
               <div className="row">
-                {data.products.edges.map(({ node: product }) => {
-                  return <Product key={product.id} product={product} />
+                {data.items.edges.map(({ node: item }) => {
+                  return <Product key={item.id} product={item} />
                 })}
               </div>
             </div>

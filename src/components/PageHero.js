@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-const PageHero = ({ title, product }) => {
+const PageHero = ({ title, item }) => {
   return (
     <Wrapper>
       <div className="section-center">
         <h3> <Link to="/">Home</Link>
-          { product && <Link to="/products">/ Products</Link> }
+          { item && <Link to="/items">/ Shop</Link> }
           / {title}
         </h3>
       </div>

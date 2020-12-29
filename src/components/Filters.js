@@ -58,7 +58,7 @@ const Filters = () => {
             </div>
           </div>
           {/* end categories */}
-          {/* companies */}
+          {/* companies  - Hilay doesnt have more than 1 company
           <div className="form-control">
             <h5>Company</h5>
             <div>
@@ -75,7 +75,7 @@ const Filters = () => {
             </select>
             </div>
           </div>
-          {/* end companies */}
+           end companies */}
           {/* colors */}
           <div className="form-control">
             <h5>Colors</h5>

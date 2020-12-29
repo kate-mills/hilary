@@ -28,13 +28,13 @@ const Product = ({ data }) => {
   return (
     <Layout>
       <SEO title={name} description={description} />
-      <Wrapper className="page section product-center">
-        <PageHero title={name} product />
+      <Wrapper className="page section item-center">
+        <PageHero title={name} item />
         <div className="section section-center page">
-          <Link to="/products" className="btn">
-            back to products
+          <Link to="/items" className="btn">
+            back to all jewelry
           </Link>
-          <div className="product-center">
+          <div className="item-center">
             <ProductImages images={images} description={description} />
             <section
               className="content"
@@ -101,7 +101,7 @@ const Wrapper = styled.main`
     width: fit-content;
     white-space: pre;
   }
-  .product-center {
+  .item-center {
     display: grid;
     gap: 4rem;
     margin-top: 2rem;
@@ -123,7 +123,7 @@ const Wrapper = styled.main`
     }
   }
   @media (min-width: 992px) {
-    .product-center {
+    .item-center {
       grid-template-columns: 1fr 1fr;
       align-items: center;
     }

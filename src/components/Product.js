@@ -16,10 +16,10 @@ const Product = (props) => {
   return (
     <Wrapper>
       <div className="container">
-        <Link to={`/products/${slug}`}>
+        <Link to={`/items/${slug}`}>
           <Image fluid={images[0].fluid} alt={description}/>
         </Link>
-        <Link to={`/products/${slug}`} className="link"><FaSearch/></Link>
+        <Link to={`/items/${slug}`} className="link"><FaSearch/></Link>
       </div>
       <footer>
         <h5>{name}</h5>

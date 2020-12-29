@@ -29,7 +29,7 @@ const Hero = () => {
           Hand cut designs made with love and natural elements by yours truly,
           in the beautiful Napa Valley. *coming soon* hideandwild.com
         </p>
-        <Link to="/products" className="btn hero-btn">
+        <Link to="/items" className="btn hero-btn">
           Shop now
         </Link>
       </article>
