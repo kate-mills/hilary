@@ -9,8 +9,6 @@ import {
   PageHero,
 } from '../components'
 
-import { useProductsContext } from '../context/products_context'
-
 const ProductsPage = () => {
   return (
     <Layout>
