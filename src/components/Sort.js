@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-onchange */
 import React from 'react'
 import { useFilterContext } from '../context/filter_context'
 import { BsFillGridFill, BsList } from 'react-icons/bs'
