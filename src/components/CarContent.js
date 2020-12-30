@@ -1,15 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
-//import { useCartContext } from '../context/cart_context'
-//import { Link } from 'gatsby'
-//import CartColumns from './CartColumns'
-//import CartItem from './CartItem'
-//import CartTotals from './CartTotals'
+import { useCartContext } from '../context/cart_context'
+import { Link } from 'gatsby'
+import CartColumns from './CartColumns'
+import CartItem from './CartItem'
+import CartTotals from './CartTotals'
 
 const CartContent = () => {
+  const {cart, clearCart} = useCartContext()
   return (
-    <Wrapper>
-      <h4>cart content </h4>
+    <Wrapper className="section section-center">
+      <CartColumns/>
+      {cart.map((item)=><CartItem key={item.id} {...item}/>)}
+      <hr/>
+      <div className="link-container">
+        <Link to="/items" className='link-btn'>
+          continue shopping
+        </Link>
+        <button
+          onClick={clearCart}
+          className="link-btn clear-btn"
+          type="button"
+          >
+          clear shopping cart
+        </button>
+      </div>
+      <CartTotals/>
     </Wrapper>
   )
 }
