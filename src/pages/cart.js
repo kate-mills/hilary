@@ -1,24 +1,41 @@
 import React from 'react'
 import styled from 'styled-components'
-//import { useCartContext } from "../context/cart_context"
-//import { Link } from "gatsby"
+import { useCartContext } from "../context/cart_context"
+import { Link } from "gatsby"
 import {
   SEO,
   Layout,
-  //CartContent, PageHero
+  CartContent, PageHero
 } from '../components'
 
 const CartPage = () => {
+  const {cart} = useCartContext();
   return (
     <Layout>
       <SEO title="Cart" />
-      <Wrapper>
-        <h4>cart page</h4>
-      </Wrapper>
+      {
+        (cart.length >= 1) && (
+          <main>
+            <PageHero title="cart"/>
+            <Wrapper className="page">
+              <CartContent/>
+            </Wrapper>
+          </main>
+        )
+      }
+      {
+        (cart.length < 1) ? 
+          <Wrapper className="page-100">
+            <div className="empty">
+              <h2>Your cart is empty</h2>
+              <Link to='/items' className='btn'>Go Shopping</Link>
+            </div>
+          </Wrapper>
+          :null
+      }
     </Layout>
   )
 }
-
 const Wrapper = styled.main`
   .empty {
     text-align: center;
