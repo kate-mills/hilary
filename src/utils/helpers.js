@@ -22,3 +22,14 @@ export const getUniqueValues = (items, filter, isArray=false) => {
   }
   return unique 
 }
+
+
+const isBrowser = typeof window !== `undefined`
+export const checkWindow = ()=>{
+  if (!isBrowser){
+    return false
+  }
+  else{
+    return true
+  }
+}
