@@ -72,7 +72,7 @@ const filter_reducer = (state, action) => {
     if(text){
       tempItems = tempItems.filter(({node})=>{
         //return node.name.toLowerCase().startsWith(text) // search name
-        return (node.name.toLowerCase().indexOf(text) >= 0); // fuzzy search
+        return (node.name.toLowerCase().indexOf(text.toLowerCase()) >= 0); // fuzzy search
       })
     }
     // CATEGORIES - ex: braceletes, earrings
