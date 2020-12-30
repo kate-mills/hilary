@@ -39,11 +39,14 @@ module.exports = {
       options: {
         name: `Hide and Wild`,
         short_name: `Hide+Wild`,
+        description: `desc`,
+        lang: `en`,
         start_url: `/`,
         background_color: `#2d1e1f`,
         theme_color: `#2d1e1f`,
-        display: `minimal-ui`,
+        display: `standalone`, //minimal-ui
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        icon_options: { purpose: `maskable` },
       },
     },
     {

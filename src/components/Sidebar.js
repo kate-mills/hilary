@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../images/handw.svg'
+import sidelogo from '../images/sidebar-logo.png'
 import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import { useProductsContext } from '../context/products_context'
 import { FaTimes } from 'react-icons/fa'
@@ -16,7 +16,7 @@ const Sidebar = ({ handleClick }) => {
         className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}
       >
         <div className="sidebar-header">
-          <img src={logo} className="logo" alt="hide & wild logo" />
+          <img src={sidelogo} className="logo" alt="hide & wild logo" />
           <button type="button" className="close-btn" onClick={closeSidebar}>
             <FaTimes />
           </button>

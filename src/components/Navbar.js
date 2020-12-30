@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import logo from '../images/handw.svg'
+import navlogo from '../images/nav-logo2.png'
 import { FaBars } from 'react-icons/fa'
 import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import { links } from '../utils/constants'
@@ -16,8 +16,7 @@ const Nav = () => {
       <div className="nav-center">
         <div className="nav-header">
           <AniLink fade to="/">
-            <img src={logo} alt="Hide & Wild Logo" />
-            <GiPrayerBeads className="necklace" />
+            <img src={navlogo} alt="Hide & Wild Logo" />
           </AniLink>
           <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
@@ -71,9 +70,7 @@ const NavContainer = styled.nav`
     border: transparent;
     color: var(--clr-primary-5);
     cursor: pointer;
-    svg {
-      font-size: 2rem;
-    }
+    svg { font-size: 2rem; }
   }
   .nav-links {
     display: none;
