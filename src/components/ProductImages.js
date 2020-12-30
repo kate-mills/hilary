@@ -4,12 +4,13 @@ import Image from 'gatsby-image'
 
 const ProductImages = ({images=[],  description}) => {
   const [main, setMain ] = useState(images[0])
+  const refContainer = React.useRef(null)
+
   return (
     <Wrapper>
-      <img
-        src={main.fluid.src}
+      <Image
+        fluid={main.fluid}
         alt={description || ""}
-        className="main"
       />
       <div className="gallery">
         {images.map((img, index)=>{
@@ -29,14 +30,16 @@ const ProductImages = ({images=[],  description}) => {
 }
 
 const Wrapper = styled.section`
-  .main {
+  .gatsby-image-wrapper {
     height: 600px;
+    object-fit: contain !important;
   }
   img {
     width: 100%;
     display: block;
     border-radius: var(--radius);
-    object-fit: contain;
+    object-fit: contain !important;
+    cursor: pointer;
   }
   .gallery {
     margin-top: 1rem;
@@ -52,7 +55,7 @@ const Wrapper = styled.section`
     border: 2px solid var(--clr-primary-5);
   }
   @media (max-width: 576px) {
-    .main {
+    .gatsby-image-wrapper {
       height: 300px;
     }
     .gallery {
@@ -62,7 +65,7 @@ const Wrapper = styled.section`
     }
   }
   @media (min-width: 992px) {
-    .main {
+    .gatsby-image-wrapper {
       height: 500px;
     }
     .gallery {
