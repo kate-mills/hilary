@@ -11,22 +11,21 @@ const cart_reducer = (state, action) => {
     const { id, color, quantity, item } = action.payload
     const tempItem = state.cart.find(i => i.id === id + color)
     if(tempItem){
-      const tempCart = state.cart.map(cartItem => {
-        // Double check id
-        if(cartItem.id === id + color){
-          // Check stock quantity
+      const tempCart = state.cart.map((cartItem) => {
+        if (cartItem.id === id + color) {
           let newQuantity = cartItem.quantity + quantity
-          if(newQuantity > cartItem.max){
+          if (newQuantity > cartItem.max) {
             newQuantity = cartItem.max
           }
-          // End Checks - increase quantity
           return { ...cartItem, quantity: newQuantity }
+        } else {
+          return cartItem
         }
-        // cart id does not match id + color - therefore NOT already in cart
-        return cartItem
       })
-    }else{
-      const newCartItem = {
+
+      return { ...state, cart: tempCart }
+    } else {
+      const newItem = {
         id: id + color,
         name: item.name,
         color,
@@ -36,11 +35,10 @@ const cart_reducer = (state, action) => {
         price: item.price,
         max: item.stockQuantity,
       }
-      return { ...state, cart: [...state.cart, newCartItem] }
+      return { ...state, cart: [...state.cart, newItem] }
     }
-    return { ... state }
   }
-  if(action.type === REMOVE_CART_ITEM) {
+  if(action.type === REMOVE_CART_ITEM){
     const tempCart = state.cart.filter(item => item.id !== action.payload)
     return { ...state, cart: tempCart }
   }
