@@ -1,14 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
-//import { formatPrice } from '../utils/helpers'
-//import AmountButtons from './AmountButtons'
-//import { FaTrash } from 'react-icons/fa'
-//import { useCartContext } from '../context/cart_context'
+import { formatWholePrice } from '../utils/helpers'
+import QuantityButtons from './QuantityButtons'
+import { FaTrash } from 'react-icons/fa'
+import { useCartContext } from '../context/cart_context'
+import Img from 'gatsby-image'
 
-const CartItem = () => {
+const CartItem = ({id, image, name, color, wholePrice, quantity}) => {
+  console.log(id, image, name, color, wholePrice, quantity)
+  const {removeItem, toggleQuantity} = useCartContext()
+  const increase = () => {}
+  const decrease = () => {}
+
   return (
     <Wrapper>
-      <h4>cart items</h4>
+      <div className='title'>
+        <Img fluid={image} src={name}/>
+        <div>
+          <h5 className="name">{name}</h5>
+          <p className="color"> color :<span style={{background:color}}></span></p>
+          <h5 className="price-small">{formatWholePrice(wholePrice)}</h5>
+        </div>
+      </div>
+      <h5 className="price">{formatWholePrice(wholePrice)}</h5> 
+      <QuantityButtons quantity={quantity} increase={increase} decrease={decrease}/>
+      <h5 className='subtotal'>{formatWholePrice(wholePrice * quantity)}</h5>
+      <button type="button" className="remove-btn" onClick={()=>removeItem(id)}>
+        <FaTrash/>
+      </button>
     </Wrapper>
   )
 }
@@ -35,12 +54,14 @@ const Wrapper = styled.article`
     text-align: left;
     gap: 1rem;
   }
-  img {
+  .gatsby-image-wrapper {
     width: 100%;
     height: 100%;
     display: block;
     border-radius: var(--radius);
-    object-fit: cover;
+  }
+  img{
+    object-fit: contain !important;
   }
   h5 {
     font-size: 0.75rem;
@@ -85,7 +106,7 @@ const Wrapper = styled.article`
     background: transparent;
     border: transparent;
     letter-spacing: var(--spacing);
-    background: var(--clr-red-dark);
+    background: var(--clr-primary-1);
     width: 1.5rem;
     height: 1.5rem;
     display: flex;
