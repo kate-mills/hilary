@@ -39,13 +39,18 @@ export const CartProvider = ({ children }) => {
     dispatch({type: ADD_TO_CART, payload:{id, color, quantity, item}})
   }
   // Remove item from cart
-  const removeItem = (id)=>{}
+  const removeItem = (id)=>{
+    dispatch({type: REMOVE_CART_ITEM, payload: id})
+  }
 
   //Toggle number of items
-  const toggleQuantity = (id, value)=>{}
+  const toggleQuantity = (id, value)=>{
+  }
 
   // Remove all items from cart
-  const clearCart = ()=>{}
+  const clearCart = ()=>{
+    dispatch({type: CLEAR_CART})
+  }
 
   useEffect(()=>{
     localStorage.setItem('cart', JSON.stringify(state.cart))

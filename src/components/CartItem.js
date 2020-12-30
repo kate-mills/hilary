@@ -7,7 +7,6 @@ import { useCartContext } from '../context/cart_context'
 import Img from 'gatsby-image'
 
 const CartItem = ({id, image, name, color, wholePrice, quantity}) => {
-  console.log(id, image, name, color, wholePrice, quantity)
   const {removeItem, toggleQuantity} = useCartContext()
   const increase = () => {}
   const decrease = () => {}
