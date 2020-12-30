@@ -44,8 +44,8 @@ export const CartProvider = ({ children }) => {
   }
 
   //Toggle number of items
-  const toggleQuantity = (id, value)=>{
-    dispatch({type: TOGGLE_CART_ITEM_QUANTITY})
+  const toggleQuantity = (idColor, value)=>{
+    dispatch({type: TOGGLE_CART_ITEM_QUANTITY, payload: {id: idColor, value:value}})
   }
 
   // Remove all items from cart

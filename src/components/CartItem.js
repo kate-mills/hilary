@@ -8,8 +8,12 @@ import Img from 'gatsby-image'
 
 const CartItem = ({id, image, name, color, wholePrice, quantity}) => {
   const {removeItem, toggleQuantity} = useCartContext()
-  const increase = () => {}
-  const decrease = () => {}
+  const increase = () => {
+    toggleQuantity(id, 'inc')
+  }
+  const decrease = () => {
+    toggleQuantity(id, 'dec')
+  }
 
   return (
     <Wrapper>
