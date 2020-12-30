@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import logo from '../images/handw.svg'
 import { FaBars } from 'react-icons/fa'
-import Link from 'gatsby-plugin-transition-link/AniLink/Fade'
+import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import { links } from '../utils/constants'
 import CartButtons from './CartButtons'
 import { useProductsContext } from '../context/products_context'
@@ -15,10 +15,10 @@ const Nav = () => {
     <NavContainer>
       <div className="nav-center">
         <div className="nav-header">
-          <Link to="/">
+          <AniLink fade to="/">
             <img src={logo} alt="Hide & Wild Logo" />
             <GiPrayerBeads className="necklace" />
-          </Link>
+          </AniLink>
           <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
           </button>
@@ -27,7 +27,7 @@ const Nav = () => {
           {links.map(link => {
             return (
               <li key={link.id}>
-                <Link to={link.url}>{link.text}</Link>
+                <AniLink fade to={link.url}>{link.text}</AniLink>
               </li>
             )
           })}

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import { FaCheck } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 import QuantityButtons from './QuantityButtons'
@@ -54,11 +54,12 @@ const AddToCart = ({item, id, colors, stockQuantity}) => {
           increase={increase}
           decrease={decrease}
         />
-        <Link
+        <AniLink
+          fade
           to="/cart"
           onClick={()=>addToCart(id, mainColor, quantity, item)}
           className="btn"
-        >add to cart</Link>
+        >add to cart</AniLink>
       </div>
     </Wrapper>
   )

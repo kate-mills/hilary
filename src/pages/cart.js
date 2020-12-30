@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useCartContext } from "../context/cart_context"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import {
   SEO,
   Layout,
@@ -28,7 +28,7 @@ const CartPage = () => {
           <Wrapper className="page-100">
             <div className="empty">
               <h2>Your cart is empty</h2>
-              <Link to='/items' className='btn'>Go Shopping</Link>
+              <AniLink fade to='/items' className='btn'>Go Shopping</AniLink>
             </div>
           </Wrapper>
           :null

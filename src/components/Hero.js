@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import Image from 'gatsby-image'
 import { graphql, useStaticQuery } from 'gatsby'
 
@@ -29,9 +29,9 @@ const Hero = () => {
           Hand cut designs made with love and natural elements by yours truly,
           in the beautiful Napa Valley. *coming soon* hideandwild.com
         </p>
-        <Link to="/items" className="btn hero-btn">
+        <AniLink fade to="/items" className="btn hero-btn">
           Shop now
-        </Link>
+        </AniLink>
       </article>
       <article className="img-container">
         <Image 

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import { graphql } from 'gatsby'
 import { formatPrice } from '../utils/helpers'
 
@@ -32,9 +32,9 @@ const Product = ({ data }) => {
       <Wrapper className="page section item-center">
         <PageHero title={name} item />
         <div className="section section-center page">
-          <Link to="/items" className="btn">
+          <AniLink fade to="/items" className="btn">
             back to all jewelry
-          </Link>
+          </AniLink>
           <div className="item-center">
             <ProductImages images={images} description={description} />
             <section

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useCartContext } from '../context/cart_context'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import CartColumns from './CartColumns'
 import CartItem from './CartItem'
 import CartTotals from './CartTotals'
@@ -14,9 +14,9 @@ const CartContent = () => {
       {cart.map((item)=><CartItem key={item.id} {...item}/>)}
       <hr/>
       <div className="link-container">
-        <Link to="/items" className='link-btn'>
+        <AniLink fade to="/items" className='link-btn'>
           continue shopping
-        </Link>
+        </AniLink>
         <button
           onClick={clearCart}
           className="link-btn clear-btn"

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import { Layout } from '../components'
 
 const SuccessPage = () => {
@@ -10,9 +10,9 @@ const SuccessPage = () => {
         <section>
           <h1>Thank You!</h1>
           <h3>Hilary will get back to you as soon as she can.</h3>
-          <Link to="/" className="btn">
+          <AniLink fade to="/" className="btn">
             Back to Homepage
-          </Link>
+          </AniLink>
         </section>
       </Wrapper>
     </Layout>

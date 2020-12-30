@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
 import { FaSearch } from 'react-icons/fa'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import Image from 'gatsby-image'
 
 const Product = (props) => {
@@ -16,10 +16,10 @@ const Product = (props) => {
   return (
     <Wrapper>
       <div className="container">
-        <Link to={`/items/${slug}`}>
+        <AniLink fade to={`/items/${slug}`}>
           <Image fluid={images[0].fluid} alt={description}/>
-        </Link>
-        <Link to={`/items/${slug}`} className="link"><FaSearch/></Link>
+        </AniLink>
+        <AniLink fade to={`/items/${slug}`} className="link"><FaSearch/></AniLink>
       </div>
       <footer>
         <h5>{name.substring(0, 21)}...</h5>

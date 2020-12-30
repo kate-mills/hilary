@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import Img from 'gatsby-image'
 
 const ListView = ({items}) => {
@@ -15,7 +15,7 @@ const ListView = ({items}) => {
               <h4>{node.name}</h4>
               <h5 className="price">{formatPrice(node.price)}</h5>
               <p>{node.description.description.substring(0, 150)}...</p>
-              <Link to={`/items/${node.slug}`} className="btn">Details</Link>
+              <AniLink fade to={`/items/${node.slug}`} className="btn">Details</AniLink>
             </div>
           </article>
         )

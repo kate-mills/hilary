@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import { SEO, Layout } from '../components'
 
 const ErrorPage = () => {
@@ -11,9 +11,9 @@ const ErrorPage = () => {
         <section>
           <h1>Oops!</h1>
           <h3>Sorry, the page you tried cannot be found.</h3>
-          <Link to="/" className="btn">
+          <AniLink fade to="/" className="btn">
             Back to Homepage
-          </Link>
+          </AniLink>
         </section>
       </Wrapper>
     </Layout>

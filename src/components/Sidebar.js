@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../images/handw.svg'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import { useProductsContext } from '../context/products_context'
 import { FaTimes } from 'react-icons/fa'
 import { links } from '../utils/constants'
@@ -26,16 +26,16 @@ const Sidebar = ({ handleClick }) => {
             return (
               <li key={link.id}>
                 {' '}
-                <Link to={link.url} onClick={closeSidebar}>
+                <AniLink fade to={link.url} onClick={closeSidebar}>
                   {link.text}
-                </Link>
+                </AniLink>
               </li>
             )
           })}
           <li>
-            <Link to="/checkout" onClick={closeSidebar}>
+            <AniLink fade to="/checkout" onClick={closeSidebar}>
               checkout
-            </Link>
+            </AniLink>
           </li>
         </ul>
         <CartButtons />
