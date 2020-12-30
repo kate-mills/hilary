@@ -4,6 +4,12 @@ export const formatPrice = (number) => {
     currency: 'USD'
   }).format(number)
 }
+export const formatWholePrice = (number) => {
+  return Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  }).format(number / 100)
+}
 
 export const getUniqueValues = (items, filter, isArray=false) => {
   let unique = ["all", ...new Set(

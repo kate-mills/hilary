@@ -1,14 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-//import { useCartContext } from '../context/cart_context'
+import { useCartContext } from '../context/cart_context'
 //import { useUserContext } from '../context/user_context'
-//import { formatPrice } from '../utils/helpers'
-//import { Link } from 'gatsby'
+import { formatWholePrice } from '../utils/helpers'
+import { Link } from 'gatsby'
 
 const CartTotals = () => {
+  const {total_price, shipping_fee} = useCartContext()
   return (
     <Wrapper>
-      <h4>cart totals</h4>
+      <div>
+        <article>
+          <h5>subtotal : <span>{formatWholePrice(total_price)}</span></h5>
+          <p>shipping fee : <span>{formatWholePrice(shipping_fee)}</span></p>
+          <hr/>
+          <h4>Order total : <span>{formatWholePrice(total_price + shipping_fee)}</span></h4>
+        </article>
+        <Link to="/checkout" className="btn">proceed to checkout</Link>
+      </div>
     </Wrapper>
   )
 }
