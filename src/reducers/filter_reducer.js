@@ -71,7 +71,7 @@ const filter_reducer = (state, action) => {
     // SEARCH BOX
     if(text){
       tempItems = tempItems.filter(({node})=>{
-        //return node.name.toLowerCase().startsWith(text)
+        //return node.name.toLowerCase().startsWith(text) // search name
         return (node.name.toLowerCase().indexOf(text) >= 0); // fuzzy search
       })
     }
@@ -114,3 +114,7 @@ const filter_reducer = (state, action) => {
 }
 
 export default filter_reducer
+
+
+// SEARCH TEST
+//console.log("text = ",text, "name = ", node.name, node.name.toLowerCase().indexOf(text))
