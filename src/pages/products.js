@@ -13,11 +13,11 @@ const ProductsPage = () => {
   return (
     <Layout>
       <SEO
-        title="All Jewelry"
+        title="Shop Jewelry"
         description="Shop all of our hand cut designs that Hilary Molloy makes with love and natural elements in the beautiful Napa Valley."
       />
       <main>
-        <PageHero title="all Jewelry" />
+        <PageHero title="Shop" />
         <Wrapper className="page">
           <div className="section-center items">
             <Filters />

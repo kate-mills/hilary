@@ -30,9 +30,9 @@ const Product = ({ data }) => {
     <Layout>
       <SEO title={name} description={description} />
       <Wrapper className="page section item-center">
-        <PageHero title={name} item />
+        <PageHero title={name} shop />
         <div className="section section-center page">
-          <AniLink fade to="/items" className="btn">
+          <AniLink fade to="/shop" className="btn">
             back to all jewelry
           </AniLink>
           <div className="item-center">

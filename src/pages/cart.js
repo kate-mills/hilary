@@ -28,7 +28,7 @@ const CartPage = () => {
           <Wrapper className="page-100">
             <div className="empty">
               <h2>Your cart is empty</h2>
-              <AniLink fade to='/items' className='btn'>Go Shopping</AniLink>
+              <AniLink fade to='/shop' className='btn'>Go Shopping</AniLink>
             </div>
           </Wrapper>
           :null

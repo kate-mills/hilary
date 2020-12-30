@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
-const PageHero = ({ title, item }) => {
+const PageHero = ({ title, shop }) => {
   return (
     <Wrapper>
       <div className="section-center">
         <h3> <AniLink fade to="/">Home</AniLink>
-          { item && <AniLink to="/items">/ Shop</AniLink> }
+          { shop && <AniLink to="/shop">/ Shop</AniLink> }
           / {title}
         </h3>
       </div>

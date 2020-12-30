@@ -14,7 +14,7 @@ const CartContent = () => {
       {cart.map((item)=><CartItem key={item.id} {...item}/>)}
       <hr/>
       <div className="link-container">
-        <AniLink fade to="/items" className='link-btn'>
+        <AniLink fade to="/shop" className='link-btn'>
           continue shopping
         </AniLink>
         <button

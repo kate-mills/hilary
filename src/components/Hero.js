@@ -29,7 +29,7 @@ const Hero = () => {
           Hand cut designs made with love and natural elements by yours truly,
           in the beautiful Napa Valley. *coming soon* hideandwild.com
         </p>
-        <AniLink fade to="/items" className="btn hero-btn">
+        <AniLink fade to="/shop" className="btn hero-btn">
           Shop now
         </AniLink>
       </article>

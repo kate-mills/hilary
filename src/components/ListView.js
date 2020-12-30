@@ -15,7 +15,7 @@ const ListView = ({items}) => {
               <h4>{node.name}</h4>
               <h5 className="price">{formatPrice(node.price)}</h5>
               <p>{node.description.description.substring(0, 150)}...</p>
-              <AniLink fade to={`/items/${node.slug}`} className="btn">Details</AniLink>
+              <AniLink fade to={`/shop/${node.slug}`} className="btn">Details</AniLink>
             </div>
           </article>
         )

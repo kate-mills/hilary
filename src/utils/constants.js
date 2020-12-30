@@ -15,7 +15,7 @@ export const links = [
   {
     id: 3,
     text: 'shop',
-    url: '/items',
+    url: '/shop',
   },
 ]
 
