@@ -48,11 +48,12 @@ const AboutPage = () => {
 const Wrapper = styled.section`
   display: grid;
   gap: 4rem;
-  img {
+  .gatsby-image-wrapper{
     width: 100%;
     display: block;
     border-radius: var(--radius);
-    height: 500px;
+    height: 400px;
+    min-height: 400px;
     object-fit: cover;
   }
   p {
@@ -68,8 +69,9 @@ const Wrapper = styled.section`
   .underline {
     margin-left: 0;
   }
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
+    height: 500px;
   }
 `
 export default AboutPage

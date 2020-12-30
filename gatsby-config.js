@@ -1,4 +1,4 @@
-require('dotenv').config({
+require(`dotenv`).config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
@@ -10,7 +10,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-snipcart',
+      resolve: `gatsby-plugin-snipcart`,
       options: {
         apiKey: process.env.SNIPCART_TEST_API,
         autopop: true,
