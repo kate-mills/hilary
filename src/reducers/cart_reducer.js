@@ -3,7 +3,7 @@ import {
   CLEAR_CART,
   COUNT_CART_TOTALS,
   REMOVE_CART_ITEM,
-  TOGGLE_CART_ITEM_AMOUNT,
+  TOGGLE_CART_ITEM_QUANTITY,
 } from '../actions'
 
 const cart_reducer = (state, action) => {
@@ -38,6 +38,7 @@ const cart_reducer = (state, action) => {
       }
       return { ...state, cart: [...state.cart, newCartItem] }
     }
+    return { ... state }
   }
   if(action.type === REMOVE_CART_ITEM) {
     const tempCart = state.cart.filter(item => item.id !== action.payload)

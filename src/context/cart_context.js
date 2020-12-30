@@ -3,7 +3,7 @@ import reducer from '../reducers/cart_reducer'
 import {
   ADD_TO_CART,
   REMOVE_CART_ITEM,
-  TOGGLE_CART_ITEM_AMOUNT,
+  TOGGLE_CART_ITEM_QUANTITY,
   CLEAR_CART,
   COUNT_CART_TOTALS,
 } from '../actions'
@@ -45,6 +45,7 @@ export const CartProvider = ({ children }) => {
 
   //Toggle number of items
   const toggleQuantity = (id, value)=>{
+    dispatch({type: TOGGLE_CART_ITEM_QUANTITY})
   }
 
   // Remove all items from cart
