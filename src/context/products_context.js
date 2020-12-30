@@ -32,65 +32,15 @@ const query = graphql`
         }
       }
     }
-    featuredItems: allContentfulHilaryJewelry(sort: {order: ASC, fields: name},
-      filter: { featured: { eq: true } }
-    ) {
-      edges {
-        node {
-          colors
-          category
-          description { description }
-          featured
-          id
-          images { 
-            fluid(resizingBehavior: SCALE){
-              ...GatsbyContentfulFluid
-            }
-          }
-          name
-          onSale
-          price
-          reviewCount
-          slug
-          stars
-          stockQuantity
-          wholePrice
-        }
-      }
-    }
-    onSaleItems: allContentfulHilaryJewelry(filter: { onSale: { eq: true } }) {
-      edges {
-        node {
-          colors
-          category
-          description { description }
-          featured
-          id
-          images { 
-            fluid(resizingBehavior: SCALE){
-              ...GatsbyContentfulFluid
-            }
-          }
-          name
-          onSale
-          price
-          reviewCount
-          slug
-          stars
-          stockQuantity
-          wholePrice
-        }
-      }
-    }
   }
 `
 
-const initialState = { isSidebarOpen: false, products_loading: false, products_error: false, all_items: [], featured_items: [], onSale_items: [] };
+const initialState = { isSidebarOpen: false, products_loading: false, products_error: false, all_items: [] };
 
 const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
-  const { allItems, featuredItems, onSaleItems } = useStaticQuery(query);
+  const { allItems } = useStaticQuery(query);
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -104,8 +54,6 @@ export const ProductsProvider = ({ children }) => {
         openSidebar,
         closeSidebar,
         all_items: allItems.edges,
-        featured_items: featuredItems.edges,
-        onSale_items: onSaleItems.edges,
       }}
     >
       {children}
