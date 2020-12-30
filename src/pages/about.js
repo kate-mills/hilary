@@ -52,8 +52,8 @@ const Wrapper = styled.section`
     width: 100%;
     display: block;
     border-radius: var(--radius);
-    height: 400px;
-    min-height: 400px;
+    height: 500px;
+    min-height: 500px;
     object-fit: cover;
   }
   p {
