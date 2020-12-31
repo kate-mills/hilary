@@ -4,20 +4,23 @@ import AniLink from "gatsby-plugin-transition-link/AniLink/Fade"
 import styled from 'styled-components'
 import { useProductsContext } from '../context/products_context'
 import { useCartContext } from '../context/cart_context'
+import {navigate} from "gatsby"
 import { useUserContext } from '../context/user_context'
 
 const CartButtons = () => {
+  const {closeSidebar} = useProductsContext()
   const {total_quantity} = useCartContext()
+
   return (
     <Wrapper className="cart-btn-wrapper">
-      <AniLink fade to="/cart" className="cart-btn">
+      <AniLink fade to="/cart" className="cart-btn" onClick={closeSidebar}>
         Cart
         <span className="cart-container">
           <FaShoppingCart />
           <span className="cart-value">{total_quantity}</span>
         </span>
       </AniLink>
-      <button type="button" className="auth-btn">
+      <button type="button" className="auth-btn" onClick={()=> navigate("/account")}>
         Login <FaUserPlus />
       </button>
     </Wrapper>
@@ -36,7 +39,6 @@ const Wrapper = styled.div`
     letter-spacing: var(--spacing);
     color: var(--clr-grey-1);
     display: flex;
-
     align-items: center;
   }
   .cart-container {

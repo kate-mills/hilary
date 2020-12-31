@@ -1,5 +1,29 @@
 const path = require('path')
 
+exports.onCreatePage = async({ page, actions }) => {
+  const { createPage  } = actions
+  if (page.path.match(/^\/account/)) {
+    page.matchPath = "/account/*"
+    // Update the page.
+    createPage(page)
+  }
+}
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /auth0-js/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -24,4 +48,6 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { slug: item.node.slug },
     })
   })
+
+
 }
