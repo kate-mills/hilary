@@ -1,11 +1,11 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions*/
+
 import React, {useState } from 'react'
 import styled from 'styled-components'
 import Image from 'gatsby-image'
 
 const ProductImages = ({images=[],  description}) => {
   const [main, setMain ] = useState(images[0])
-  const refContainer = React.useRef(null)
-
   return (
     <Wrapper>
       <Image
@@ -16,6 +16,7 @@ const ProductImages = ({images=[],  description}) => {
         {images.map((img, index)=>{
           return(
             <img
+              onKeyPress={()=>setMain(images[index])}
               key={index}
               onClick={()=> setMain(images[index])}
               src={img.fluid.src}

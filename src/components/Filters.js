@@ -9,7 +9,6 @@ const Filters = () => {
       text,
       category,
       color,
-      company,
       min_price,
       max_price,
       price,
@@ -19,8 +18,6 @@ const Filters = () => {
 
   const categories = getUniqueValues(all_items, 'category')
   const colors = getUniqueValues(all_items, 'colors', {isArray: true})
-  const companies = ['all', 'Hide & Wild']
-
 
   return (
     <Wrapper>
